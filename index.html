@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STG Character Couture | Sivad Tamara Graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241F1C;
+    --heading:#2B3D28;
+    --paper:#F5F0E8;
+    --card:#FFFFFF;
+    --surface:#FFFFFF;
+    --surface-text:#4d4a45;
+    --forest:#2B3D28;
+    --forest-deep:#1E2B1B;
+    --sage:#8CA47E;
+    --sage-pale:#E7EDE1;
+    --rose:#C97B93;
+    --rose-deep:#A85572;
+    --rose-pale:#F6E4EA;
+    --line:#E7E1D6;
+    --muted:#8B8478;
+    --savecard-text:#3f4d39;
+    --shadow: 0 16px 40px -16px rgba(30,27,20,0.22);
+    --radius: 16px;
+  }
+  html[data-theme="dark"]{
+    --ink:#F2EDE4;
+    --heading:#F4F1E9;
+    --paper:#15130F;
+    --card:#201E19;
+    --surface:#2A2822;
+    --surface-text:#E8E2D8;
+    --forest-deep:#0F0D0A;
+    --sage:#9DB98D;
+    --sage-pale:#293327;
+    --rose:#E39BB0;
+    --rose-deep:#F0AFC2;
+    --rose-pale:#3A2530;
+    --line:#3A362E;
+    --muted:#B0A798;
+    --savecard-text:#D5E5CB;
+    --shadow: 0 16px 40px -16px rgba(0,0,0,0.5);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{transition: background .2s ease;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:17px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--rose-pale); color:var(--heading);}
+  button{font-family:inherit;}
+
+  /* ---------- Top Bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:var(--forest-deep);
+    color:var(--card);
+    padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+    border-bottom:3px solid var(--rose);
+  }
+  .brandmark{display:flex; align-items:center; gap:12px;}
+  .brandmark .badge{
+    width:46px; height:38px; border-radius:10px;
+    background:linear-gradient(135deg, var(--rose), var(--sage));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:900; font-size:16px; letter-spacing:-0.02em; color:var(--forest-deep);
+    flex-shrink:0;
+  }
+  .brandmark .btext{line-height:1.15;}
+  .brandmark .btext .studio{font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--rose); font-weight:600;}
+  .brandmark .btext .name{font-family:'Fraunces', serif; font-size:20px; font-weight:600; color:var(--card);}
+  .topbar-actions{display:flex; gap:10px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    border:none;
+    border-radius:999px;
+    padding:10px 18px;
+    cursor:pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .15s ease;
+    display:inline-flex; align-items:center; gap:6px;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{background:var(--rose); color:#fff;}
+  .btn-primary:hover{background:var(--rose-deep);}
+  .btn-secondary{background:transparent; color:var(--card); border:1.5px solid rgba(255,255,255,0.28);}
+  .btn-secondary:hover{border-color:var(--rose);}
+  .btn-ghost{background:rgba(255,255,255,0.08); color:var(--card);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.16);}
+  .btn-sage{background:var(--sage); color:var(--forest-deep);}
+  .btn-sage:hover{background:#7c9470;}
+  .btn-outline{background:transparent; color:var(--heading); border:1.5px solid var(--line);}
+  .btn-outline:hover{border-color:var(--rose); color:var(--rose-deep);}
+  .btn:disabled{opacity:0.4; cursor:not-allowed;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:52px 28px 30px;
+    max-width:1400px; margin:0 auto;
+  }
+  .hero h1{font-size:clamp(32px,3.4vw,46px); margin:0 0 10px; color:var(--heading);}
+  .hero p{max-width:700px; color:var(--muted); font-size:19px; margin:0;}
+  .hero .tagline{
+    display:inline-block; margin-bottom:14px;
+    font-size:14px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--rose-deep); font-weight:700;
+  }
+
+  /* ---------- How This Works ---------- */
+  .howto{
+    max-width:1400px; margin:0 auto;
+    padding:0 28px 8px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  @media (max-width: 980px){
+    .howto{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width: 560px){
+    .howto{grid-template-columns:1fr;}
+  }
+  .howto-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .howto-num{
+    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+    background:var(--rose-pale); color:var(--rose-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:700; font-size:14px;
+  }
+  .howto-text{font-size:15px; line-height:1.5; color:var(--muted);}
+  .howto-text b{color:var(--heading); font-weight:700;}
+
+  /* ---------- Shell ---------- */
+  .shell{
+    max-width:1400px; margin:0 auto;
+    padding:0 28px 80px;
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap:22px;
+    align-items:start;
+  }
+  @media (max-width: 980px){
+    .shell{grid-template-columns: 1fr;}
+    .preview-col{position:static !important;}
+  }
+
+  /* ---------- Sections Column (accordion) ---------- */
+  .sections-col{ min-width:0; }
+  .section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .section.locked{border-color:var(--rose);}
+  .section-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 24px;
+    cursor:pointer;
+    gap:14px;
+  }
+  .section-head-left{display:flex; align-items:flex-start; gap:14px; min-width:0;}
+  .section-num{
+    font-family:'Fraunces', serif; font-weight:700; font-size:15px;
+    width:32px; height:32px; border-radius:50%;
+    background:var(--rose-pale); color:var(--rose-deep);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .section.locked .section-num{background:var(--rose); color:#fff;}
+  .section.filled .section-num{background:var(--sage); color:#fff;}
+  .section-titles{min-width:0;}
+  .section-titles h3{margin:0 0 3px; font-size:18px; color:var(--heading);}
+  .section-titles p{margin:0; font-size:14px; color:var(--muted);}
+  .section-head-right{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+  .section-chev{transition:transform .2s ease; color:var(--muted); flex-shrink:0;}
+  .section.open .section-chev{transform:rotate(180deg);}
+  .section-body{
+    max-height:0; overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .section.open .section-body{max-height:6000px;}
+  .section-body-inner{padding:0 24px 26px;}
+
+  .lock-toggle{
+    appearance:none; -webkit-appearance:none;
+    font-family:'Work Sans', sans-serif;
+    display:flex; align-items:center; gap:6px; flex-shrink:0;
+    font-size:13px; font-weight:600; color:var(--heading);
+    border:1px solid var(--line); border-radius:999px;
+    padding:7px 13px; cursor:pointer;
+    background:var(--surface);
+    transition: all .15s ease;
+  }
+  .lock-toggle:hover{border-color:var(--rose);}
+  .lock-toggle.on{background:var(--rose); color:#fff; border-color:var(--rose);}
+
+  .field{margin-bottom:22px;}
+  .field:last-child{margin-bottom:0;}
+  .field-label{
+    font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--heading); margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .field-label .opt{
+    font-size:11px; text-transform:none; letter-spacing:0; font-weight:600;
+    color:var(--muted); background:var(--sage-pale); padding:2px 7px; border-radius:6px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    appearance:none; -webkit-appearance:none;
+    font-family:'Work Sans', sans-serif;
+    font-size:15px; font-weight:500;
+    padding:7px 13px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--surface-text);
+    cursor:pointer;
+    transition: all .12s ease;
+    user-select:none;
+  }
+  .chip:hover{border-color:var(--rose); color:var(--rose-deep); background:var(--rose-pale);}
+  .chip:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
+  .lock-toggle:focus-visible, .prompt-tab:focus-visible, .nav-item:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
+  .chip.sel{background:var(--forest); border-color:var(--forest); color:#fff;}
+  .chip.sel.pinkish{background:var(--rose); border-color:var(--rose); color:#fff;}
+  .chip.custom{border-style:dashed; border-color:var(--rose-deep);}
+  .chip.custom.sel{background:var(--rose-deep); border-color:var(--rose-deep); border-style:solid;}
+  .custom-add-row{
+    display:flex; gap:8px; margin-top:10px;
+  }
+  .custom-add-input{
+    flex:1; padding:9px 12px; border-radius:999px;
+    border:1px dashed var(--line); font-family:'Work Sans', sans-serif; font-size:15px;
+    background:var(--surface); color:var(--surface-text);
+  }
+  .custom-add-input:focus{outline:2px solid var(--rose); outline-offset:1px; border-style:solid;}
+  .custom-add-btn{
+    flex-shrink:0; padding:9px 16px; border-radius:999px; border:none;
+    background:var(--rose-pale); color:var(--rose-deep); font-weight:700; font-size:14px;
+    cursor:pointer; transition:all .12s ease;
+  }
+  .custom-add-btn:hover{background:var(--rose); color:#fff;}
+  .text-input, select, input[type=text]{
+    width:100%; padding:11px 13px; border-radius:9px;
+    border:1px solid var(--line); font-family:'Work Sans', sans-serif; font-size:16px;
+    background:var(--paper); color:var(--ink);
+  }
+  .text-input:focus, select:focus, input[type=text]:focus{outline:2px solid var(--rose); outline-offset:1px;}
+  .hint{font-size:14px; color:var(--muted); margin-top:6px;}
+  .color-row{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .color-field{text-align:center;}
+  .color-field label{font-size:13px; font-weight:600; color:var(--muted); display:block; margin-bottom:6px;}
+  .color-field input[type=color]{
+    width:100%; height:42px; border-radius:9px; border:1px solid var(--line); cursor:pointer; padding:2px;
+    background:var(--surface);
+  }
+  .checkline{display:flex; align-items:center; gap:8px; font-size:15px; color:var(--surface-text); margin-top:4px;}
+  .checkline input{accent-color:var(--rose); width:16px; height:16px;}
+
+  /* ---------- Preview Column ---------- */
+  .preview-col{position:sticky; top:82px;}
+  .preview-card{
+    background:var(--forest-deep);
+    color:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    margin-bottom:16px;
+  }
+  .preview-card h2{margin:0 0 4px; font-size:22px; color:#fff;}
+  .preview-card .sub{font-size:14px; color:#b9c7b3; margin-bottom:16px;}
+  .prompt-box{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:12px;
+    padding:16px;
+    font-size:15px;
+    line-height:1.65;
+    min-height:120px;
+    max-height:340px;
+    overflow-y:auto;
+    color:#f2efe9;
+    white-space:pre-wrap;
+  }
+  .prompt-box.empty{color:#9aa79a; font-style:italic;}
+  .preview-actions{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap;}
+  .variation-bar{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:10px; color:#fff; font-size:0.9rem;}
+  .variation-bar select{background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.3); border-radius:8px; padding:5px 8px; font:inherit;}
+  .variation-bar select option{color:#222;}
+  .variation-chips{display:flex; gap:5px; flex-wrap:wrap;}
+  .variation-chip{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.3); border-radius:999px; padding:3px 11px; font:inherit; font-size:0.85rem; cursor:pointer;}
+  .variation-chip.active{background:var(--rose); border-color:var(--rose);}
+  .variation-chip:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
+  .prompt-stack{display:none; flex-direction:column; gap:12px;}
+  .prompt-stack.on{display:flex;}
+  .stack-head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; color:#fff; font-weight:700; font-size:0.95rem;}
+  .stack-copy{background:var(--rose); color:#fff; border:0; border-radius:8px; padding:6px 12px; font:inherit; font-size:0.85rem; cursor:pointer;}
+  .stack-copy:focus-visible{outline:2px solid #fff; outline-offset:2px;}
+  .prompt-tabs{display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;}
+  .prompt-tab{
+    font-family:'Work Sans', sans-serif; font-size:11.5px; font-weight:600;
+    padding:6px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.06); color:#cfd6c9; cursor:pointer;
+    transition:all .12s ease;
+  }
+  .prompt-tab:hover{border-color:var(--rose); color:#fff;}
+  .prompt-tab.active{background:var(--rose); border-color:var(--rose); color:#fff;}
+  .btn-sm{padding:8px 13px; font-size:12px;}
+  .preset-band{width:calc(100% - 56px); max-width:1344px; box-sizing:border-box; margin:0 auto 18px; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:18px;}
+  .preset-band-title{font-size:13px; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--heading); margin-bottom:6px;}
+  .preset-band-note{margin:0 0 12px; font-size:0.95rem; opacity:0.85;}
+  .preset-grid{display:flex; flex-wrap:wrap; gap:8px;}
+  .preset-btn{padding:9px 14px; border-radius:999px; border:1px solid var(--line); background:transparent; color:inherit; font:inherit; font-size:0.95rem; cursor:pointer;}
+  .preset-btn:hover{border-color:var(--rose); background:rgba(201,123,147,0.12);}
+  .preset-btn:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
+  .preset-btn.applied{background:var(--rose); border-color:var(--rose); color:#fff;}
+  .quick-random-card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; margin-bottom:16px;
+  }
+  .quick-random-title{
+    font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:700;
+    color:var(--heading); margin-bottom:10px;
+  }
+  .quick-random-row{display:flex; flex-wrap:wrap; gap:8px;}
+
+  .match-card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px; margin-bottom:16px;
+  }
+  .match-card h3{margin:0 0 3px; font-size:18px; color:var(--heading);}
+  .match-card p.note{font-size:14px; color:var(--muted); margin:0 0 14px;}
+  .gauge-wrap{display:flex; align-items:center; gap:16px;}
+  .gauge-num{font-family:'Fraunces', serif; font-size:40px; font-weight:700; color:var(--heading); flex-shrink:0; width:70px;}
+  .gauge-track{
+    flex:1; height:10px; border-radius:999px;
+    background:linear-gradient(90deg, var(--rose) 0%, var(--sage) 100%);
+    opacity:0.25; position:relative;
+  }
+  .gauge-fill{
+    position:absolute; top:0; left:0; height:100%; border-radius:999px;
+    background:linear-gradient(90deg, var(--rose), var(--sage));
+    transition:width .35s ease;
+  }
+  .gauge-msg{font-size:14px; color:var(--muted); margin-top:10px;}
+
+  .save-card{background:var(--sage-pale); border-radius:18px; padding:18px; font-size:15px; color:var(--savecard-text);}
+  .save-card b{color:var(--heading);}
+  .fav-list{margin-top:10px; display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;}
+  .fav-item{
+    background:var(--surface); border-radius:9px; padding:8px 10px; font-size:14px; color:var(--surface-text);
+    display:flex; justify-content:space-between; align-items:center; gap:8px;
+  }
+  .fav-item button{background:none; border:none; color:var(--rose-deep); cursor:pointer; font-size:13px; font-weight:700;}
+
+  .footer-note{
+    text-align:center; font-size:14px; color:var(--muted); padding:30px 20px 4px;
+  }
+  .disclaimer-note{
+    text-align:center; font-size:12px; color:var(--muted); padding:0 20px 50px;
+    max-width:700px; margin:0 auto; line-height:1.6; opacity:0.85;
+  }
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--forest-deep); color:#fff; padding:12px 22px; border-radius:999px;
+    font-size:15px; font-weight:600; box-shadow:var(--shadow);
+    opacity:0; pointer-events:none; transition:all .25s ease; z-index:100;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  svg.icon{width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brandmark">
+    <div class="badge">STG</div>
+    <div class="btext">
+      <div class="studio">Sivad Tamara Graphics</div>
+      <div class="name">STG Character Couture</div>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn btn-ghost" id="btnTheme">🌙 Night Mode</button>
+    <button class="btn btn-ghost" id="btnClear">Clear</button>
+    <button class="btn btn-secondary" id="btnSurprise">🎲 Surprise Me</button>
+    <button class="btn btn-primary" id="btnGenerate">Generate Prompt</button>
+  </div>
+</div>
+
+<div class="hero">
+  <span class="tagline">Beginner Friendly &middot; Select as much or as little as you want</span>
+  <h1>Build your character, your typography, or both — custom to you.</h1>
+  <p>Work through each step below, or jump straight to any section. Leave anything blank and the generator will skip it. Lock a step to protect it from Surprise Me.</p>
+</div>
+
+<div class="howto">
+  <div class="howto-item">
+    <div class="howto-num">1</div>
+    <div class="howto-text"><b>Open a section.</b> Tap any section header to expand it. Work top to bottom, or jump straight to the one you need — they're all on one page.</div>
+  </div>
+  <div class="howto-item">
+    <div class="howto-num">2</div>
+    <div class="howto-text"><b>Tap to select.</b> Every field is multi-select — tap a chip to add it, tap again to remove it. Don't see what you want? Type it into the "Add your own" box under any list.</div>
+  </div>
+  <div class="howto-item">
+    <div class="howto-num">3</div>
+    <div class="howto-text"><b>Lock what you love.</b> Hit "Lock" on any section to protect it — Surprise Me and Clear will skip locked sections.</div>
+  </div>
+  <div class="howto-item">
+    <div class="howto-num">4</div>
+    <div class="howto-text"><b>Generate + copy.</b> Hit Generate Prompt anytime to compile your selections, then copy it or save it to Favorites for later.</div>
+  </div>
+</div>
+
+<div class="preset-band">
+  <div class="preset-band-title">⚡ Quick-Start Presets</div>
+  <p class="preset-band-note">Tap a preset to fill in a complete look instantly, then change anything you like. Your gender, ethnicity, skin tone and typed text stay put.</p>
+  <div class="preset-grid" id="presetGrid"></div>
+</div>
+
+<div class="shell">
+  <div class="sections-col" id="sectionsCol"></div>
+
+  <div class="preview-col">
+    <div class="preview-card">
+      <h2>Your Prompt</h2>
+      <div class="sub">Updates live as you build</div>
+      <div class="prompt-tabs" id="promptTabs">
+        <button class="prompt-tab active" data-tab="combined">Combined</button>
+        <button class="prompt-tab" data-tab="character">Character</button>
+        <button class="prompt-tab" data-tab="typography">Typography</button>
+        <button class="prompt-tab" data-tab="negative">Negative Prompt</button>
+      </div>
+      <div class="variation-bar" id="variationBar">
+        <label for="variationCount">Variations:</label>
+        <select id="variationCount">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+        </select>
+        <label for="variationStyle" style="margin-left:6px;">Style:</label>
+        <select id="variationStyle">
+          <option value="similar">More Similar</option>
+          <option value="different">More Different</option>
+        </select>
+        <div class="variation-chips" id="variationChips"></div>
+      </div>
+      <div class="prompt-stack" id="promptStack"></div>
+      <div class="prompt-box empty" id="promptBox">Your generated prompt will appear here. Start selecting options, then hit Generate Prompt.</div>
+      <div class="preview-actions">
+        <button class="btn btn-primary" id="btnCopy">📋 Copy Prompt</button>
+        <button class="btn btn-sage" id="btnSeparate">🗂 Show Each Prompt Separately</button>
+        <button class="btn btn-sage" id="btnCopyVariations" style="display:none;">📚 Copy All Variations</button>
+        <button class="btn btn-outline" id="btnRegenerate" style="background:transparent; color:#fff; border-color:rgba(255,255,255,0.3);">↻ Regenerate</button>
+        <button class="btn btn-sage" id="btnSaveFav">☆ Save to Favorites</button>
+      </div>
+    </div>
+
+    <div class="quick-random-card">
+      <div class="quick-random-title">Quick Randomize</div>
+      <div class="quick-random-row">
+        <button class="btn btn-outline btn-sm" id="btnRandomCharacter">🧑🏾 Random Character</button>
+        <button class="btn btn-outline btn-sm" id="btnRandomHolidaySeason">🎉 Random Holiday / Season</button>
+      </div>
+    </div>
+
+    <div class="match-card">
+      <h3>Character + Text Match</h3>
+      <p class="note">A lightweight coordination score based on theme, palette, and matching mode.</p>
+      <div class="gauge-wrap">
+        <div class="gauge-num" id="gaugeNum">—</div>
+        <div class="gauge-track"><div class="gauge-fill" id="gaugeFill" style="width:0%"></div></div>
+      </div>
+      <div class="gauge-msg" id="gaugeMsg">Select a theme or palette to see your coordination score.</div>
+    </div>
+
+    <div class="save-card">
+      <b>Favorites</b> — saved to this browser only.
+      <div class="fav-list" id="favList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">© Sivad Tamara Graphics 2026 &middot; STG Character Couture</div>
+<div class="disclaimer-note">This tool and its contents are the property of Sivad Tamara Graphics. It may not be copied, edited, redistributed, or resold — in whole or in part — without express written permission.</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ DATA ============ */
+const split = s => s.split(',').map(x=>x.trim());
+
+const PALETTE_PRESETS = {
+  'Red': {primary:'#C0342F', secondary:'#8B1E1B', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Blue': {primary:'#2F5FA8', secondary:'#1E3A5C', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Yellow': {primary:'#E8C547', secondary:'#B8941F', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Green': {primary:'#3F7A4A', secondary:'#2A5230', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Purple': {primary:'#6B3FA0', secondary:'#4A2E70', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Orange': {primary:'#D9752C', secondary:'#A8541C', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Black': {primary:'#1C1B19', secondary:'#3A362E', accent:'#8A8A8A', neutral:'#FFFFFF'},
+  'White': {primary:'#FFFFFF', secondary:'#F4F1EC', accent:'#1C1B19', neutral:'#8A8A8A'},
+  'STG Signature — Pink, Sage, White + Black': {primary:'#C97B93', secondary:'#8CA47E', accent:'#2B3D28', neutral:'#FFFFFF'},
+  'Pastel Pink + Gold': {primary:'#F6C6D6', secondary:'#D9B366', accent:'#8A6A2F', neutral:'#FFF8ED'},
+  'Black + White Editorial': {primary:'#1C1B19', secondary:'#FFFFFF', accent:'#8A8A8A', neutral:'#F4F1EC'},
+  'Pastel Rainbow': {primary:'#F6B8C6', secondary:'#B8E0D2', accent:'#F6E27A', neutral:'#FFFFFF'},
+  'Holiday Red + Green': {primary:'#B0332F', secondary:'#2F5D3A', accent:'#D9B366', neutral:'#FFFFFF'},
+  'Halloween Orange + Black': {primary:'#D9752C', secondary:'#1C1B19', accent:'#6B3FA0', neutral:'#F4E9D8'},
+  'HBCU Green + Gold': {primary:'#0B4C2C', secondary:'#D4AF37', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Juneteenth Red, Black + Green': {primary:'#B0332F', secondary:'#0B4C2C', accent:'#1C1B19', neutral:'#F4E9D8'},
+  'Y2K Chrome + Baby Pink': {primary:'#F6B8CE', secondary:'#C9D6DC', accent:'#8A8FA0', neutral:'#FFFFFF'},
+  'Sunset Streetwear — Orange, Pink + Purple': {primary:'#E8804A', secondary:'#C9738C', accent:'#6B3FA0', neutral:'#FFF3E8'},
+  'Cozy Neutral — Cream, Taupe + Rust': {primary:'#B5714A', secondary:'#A99A85', accent:'#5C4632', neutral:'#F6EFE4'},
+  'Spring Pastel — Lilac, Mint + Blush': {primary:'#C9AEDD', secondary:'#B8E0D2', accent:'#F0C2CE', neutral:'#FFFFFF'},
+  'Hot Pink + Black + White': {primary:'#E8368F', secondary:'#1C1B19', accent:'#8A8A8A', neutral:'#FFFFFF'},
+  'Pink + Lime': {primary:'#F0A8C4', secondary:'#B8E040', accent:'#5C7A1E', neutral:'#FFFFFF'},
+  'Pink + Purple': {primary:'#F0A8C4', secondary:'#8A5FC9', accent:'#4A2E70', neutral:'#FFFFFF'},
+  'Pink + Red': {primary:'#F0A8C4', secondary:'#C4302B', accent:'#7A1F1C', neutral:'#FFFFFF'},
+  'Black + Gold': {primary:'#1C1B19', secondary:'#D4AF37', accent:'#8A6A2F', neutral:'#F4F1EC'},
+  'Black + Silver': {primary:'#1C1B19', secondary:'#C0C0C8', accent:'#6E6E75', neutral:'#F4F1EC'},
+  'Red + Black': {primary:'#B0332F', secondary:'#1C1B19', accent:'#7A1F1C', neutral:'#F4E9D8'},
+  'Red + White': {primary:'#B0332F', secondary:'#FFFFFF', accent:'#7A1F1C', neutral:'#F4E9D8'},
+  'Purple + Black': {primary:'#6B3FA0', secondary:'#1C1B19', accent:'#4A2E70', neutral:'#F4F1EC'},
+  'Blue + Silver': {primary:'#3A6EA5', secondary:'#C0C0C8', accent:'#1E3A5C', neutral:'#FFFFFF'},
+  'Aqua + Pink': {primary:'#5CC9C0', secondary:'#F0A8C4', accent:'#2E7A72', neutral:'#FFFFFF'},
+  'Earth Tones': {primary:'#B5714A', secondary:'#7A9471', accent:'#5C4632', neutral:'#F6EFE4'},
+  'Neutrals': {primary:'#C9C2B5', secondary:'#A99A85', accent:'#5C5548', neutral:'#F6F1E9'},
+  'Pastels': {primary:'#F6C6D6', secondary:'#B8E0D2', accent:'#C9AEDD', neutral:'#FFFFFF'},
+  'Rainbow': {primary:'#E8368F', secondary:'#5CC9C0', accent:'#F6E27A', neutral:'#FFFFFF'},
+  'Christmas Red + Green': {primary:'#B0332F', secondary:'#2F5D3A', accent:'#0B4C2C', neutral:'#FFFFFF'},
+  'Red + White + Gold': {primary:'#B0332F', secondary:'#FFFFFF', accent:'#D4AF37', neutral:'#F4E9D8'},
+  'Emerald + Gold': {primary:'#0B4C2C', secondary:'#D4AF37', accent:'#1C1B19', neutral:'#FFFFFF'},
+  'Pink Christmas': {primary:'#F0A8C4', secondary:'#2F5D3A', accent:'#D4AF37', neutral:'#FFFFFF'},
+  'Black + Gold Christmas': {primary:'#1C1B19', secondary:'#D4AF37', accent:'#B0332F', neutral:'#F4E9D8'},
+  'Purple + Black Halloween': {primary:'#6B3FA0', secondary:'#1C1B19', accent:'#D9752C', neutral:'#F4E9D8'},
+  'Pink Halloween': {primary:'#F0A8C4', secondary:'#1C1B19', accent:'#D9752C', neutral:'#F4E9D8'},
+};
+const PALETTE_PRESET_OPTS = [...Object.keys(PALETTE_PRESETS), 'Custom (use color pickers below)'];
+
+const SECTIONS = [
+  {
+    id:'start', num:1, title:'Start Here', desc:'Choose what you want to create.', lockable:true,
+    fields:[
+      {id:'creationMode', label:'Creation Mode', type:'multi', opts:split('Character Only, Typography Only, Character + Typography')},
+      {id:'artStyle', label:'Art Style', type:'multi', opts:split('Hyperrealistic, Photorealistic, Realistic, Semi-Realistic, Cartoon Realism, Stylized Realism, Cartoon, Caricature, Big Mouth Character Style, Anime, Manga, Chibi, Chibi Bratz Style, Disney-Inspired, Pixar-Inspired, 3D Pixar Style, Comic Book, Pop Art, Vector Art, Flat Illustration, Line Art, Watercolor, Oil Painting, Acrylic Painting, Pencil Sketch, Charcoal Sketch, Digital Painting, Airbrush Art, Pixel Art, Claymation, 3D Render, Low Poly, Vaporwave, Surrealism, Pop Surrealism, Impressionist, Concept Art, Storybook Illustration, Ink Wash')},
+      {id:'designType', label:'Design Type', optional:true, type:'multi', opts:split('T-Shirt Graphic, Hoodie Graphic, Sweatshirt Graphic, Chenille Patch, Sticker, Poster, Flyer, Digital Art Print, Seasonal Character Image, Notebook Cover, Journal Cover, Phone Case, Tumbler Wrap, Water Bottle Wrap, Mug Design, Tote Bag, Laptop Sleeve, Keychain, Pin / Button, Wall Art / Canvas Print, Blanket Design, Onesie / Baby Apparel, Bandana, Banner, Business Card, Invitation, Greeting Card, Coloring Page, Vinyl Decal, Puzzle, Social Media Post, PNG Asset')},
+      {id:'numCharacters', label:'Number of Characters', optional:true, type:'multi', opts:split('1 Character, 2 Characters, 3 Characters, Group / Squad')},
+      {id:'characterConsistency', label:'Character Consistency', optional:true, type:'multi', opts:split('Consistent Character Across Uses, New Character Each Time, Match Reference Image')},
+    ]
+  },
+  {
+    id:'aesthetic', num:2, title:'Character Aesthetic', desc:'Choose one or several aesthetics.', lockable:true,
+    fields:[
+      {id:'characterAesthetic', label:'Character Aesthetic', type:'multi', opts:split('Premium 3D Fashion Doll, Luxury Fashion Doll, Semi-Realistic 3D, Hyper-Realistic 3D, Stylized Beauty Doll, Editorial Fashion Character, Y2K Doll, 1990s Inspired, 2000s Inspired, Urban Streetwear, Luxury Streetwear, Preppy, Girly Glam, Soft Glam, Baddie, Bougie, Sporty, Sneakerhead, Cozy, Alternative, Punk, Goth, Pastel Goth, Cyber, Futuristic, Retro, Vintage, Boho, Cottagecore, Western, Holiday Glam, Beauty Influencer, Fashion Influencer, Entrepreneur, Kreator, Artist, Designer, Teacher, Hairstylist, Nail Artist, Makeup Artist, Nurse, Student, Gamer, Content Creator')},
+    ]
+  },
+  {
+    id:'ethnicity', num:3, title:'Ethnicity + Appearance', desc:'Appearance controls are independent from ethnicity.', lockable:true,
+    fields:[
+      {id:'gender', label:'Gender', type:'multi', opts:split('Female, Male, Girl, Boy')},
+      {id:'ethnicity', label:'Ethnicity / Cultural Appearance', type:'multi', opts:split('Black / African American, African, Afro-Caribbean, Afro-Latina, Latina, Hispanic, Caucasian, East Asian, South Asian, Southeast Asian, Middle Eastern, Indigenous, Pacific Islander, Mixed Race, Multicultural, Fantasy')},
+      {id:'skinTone', label:'Skin Tone', type:'multi', opts:split('Porcelain, Fair, Light, Light Beige, Golden Beige, Olive, Warm Tan, Caramel, Honey Brown, Chestnut, Cocoa, Deep Brown, Mahogany, Espresso, Very Deep')},
+      {id:'appearanceNotes', label:'Custom Appearance Notes', optional:true, type:'text', placeholder:'Optional custom appearance details'},
+    ]
+  },
+  {
+    id:'face', num:4, title:'Face + Expression', desc:'Build strong personality and facial detail.', lockable:true,
+    fields:[
+      {id:'faceShape', label:'Face Shape', type:'multi', opts:split('Round, Oval, Heart, Diamond, Square, Soft Angular, Sculpted, Baby Face, Mature Glam, Full Cheeks, High Cheekbones, Defined Jaw, Doll-Like')},
+      {id:'expression', label:'Expression', type:'multi', opts:split('Neutral, Soft Smile, Big Smile, Laughing, Excited, Confident, Smirking, Unimpressed, Side-Eye, Annoyed, Angry, Disgusted, Shocked, Confused, Skeptical, Sarcastic, Bored, Sleepy, Mischievous, Flirty, Sassy, Serious, Bossy, Playful, Dramatic Eye Roll, Lips Pursed, Raised Eyebrow, Furrowed Brows, Scrunched Nose, Forehead Wrinkles')},
+      {id:'eyeShape', label:'Eye Shape', type:'multi', opts:split('Large Almond, Oversized Doll Eyes, Hooded, Round, Cat Eye, Upturned, Heavy-Lidded, Wide Set')},
+      {id:'eyeColor', label:'Eye Color', type:'multi', opts:split('Dark Brown, Chocolate Brown, Honey, Hazel, Amber, Green, Emerald, Gray, Silver Gray, Blue, Aqua, Violet')},
+      {id:'lashStyle', label:'Lash Style', type:'multi', opts:split('Natural, Long, Extra Long, Wispy, Dramatic, Spiky, Doll-Like, Editorial, Volume, Mega Volume, Fluffy, Cat-Eye, Wet Look, Hybrid, Mink, Magnetic, Cluster, Bottom Lashes, Colored Lashes, Glitter Lashes, Rhinestone Lashes, Feathered, Thick and Full, Strip Lashes')},
+      {id:'lips', label:'Lips', type:'multi', opts:split('Full, Extra Full, Soft, Heart-Shaped, Glossy, Matte, Glass-Like Gloss, Ombre Lip, Nude, Pink, Brown, Burgundy, Red')},
+      {id:'teeth', label:'Teeth', type:'multi', opts:split('Natural, Bright Smile, Visible Teeth, Braces, Colorful Braces, Gold Tooth Accent, Grill Detail, No Teeth Visible')},
+    ]
+  },
+  {
+    id:'makeup', num:5, title:'Makeup', desc:'Optional beauty direction.', lockable:true,
+    fields:[
+      {id:'makeup', label:'Makeup', type:'multi', opts:split('No Makeup, Natural, Soft Glam, Full Glam, Y2K, Smoky, Cut Crease, Winged Liner, Graphic Liner, Glitter, Rhinestone, Blush Heavy, Bronzed, Dewy, Matte, Editorial, Goth, Holiday Glam, Halloween Glam, Christmas Glam')},
+      {id:'nailShape', label:'Nail Shape', optional:true, type:'multi', opts:split('Almond, Coffin, Ballerina, Square, Squoval, Round, Oval, Stiletto, Pointed, Lipstick, Flare, Edge, Duck')},
+      {id:'nailLength', label:'Nail Length', optional:true, type:'multi', opts:split('Short, Medium, Long, Extra Long, XXL Statement Length, Natural Bare Nails')},
+      {id:'nailStyle', label:'Nail Style / Design', optional:true, type:'multi', opts:split('French Tip, Colored French Tip, Glossy, Matte, Chrome, Mirror Chrome, Glitter, Ombre, Rhinestones, 3D Charms, Pearls, Airbrush, Cat Eye, Jelly, Marble, Leopard Print, Animal Print, Checkered, Polka Dot, Hearts, Stars, Flames, Butterflies, Graffiti, Holiday Themed, Halloween Themed, Christmas Themed, Designer Logo-Inspired Print, Acrylic Set, Press-On Set, Gel Manicure')},
+      {id:'nailColor', label:'Nail Color', optional:true, type:'multi', opts:split('Black, White, Nude, Pink, Hot Pink, Red, Burgundy, Orange, Yellow, Green, Sage Green, Blue, Baby Blue, Purple, Lavender, Gold, Silver, Brown, Clear, Multicolor')},
+    ]
+  },
+  {
+    id:'hair', num:6, title:'Hair', desc:'Texture, hairstyle, accessories and color.', lockable:true,
+    fields:[
+      {id:'hairTexture', label:'Hair Texture', type:'multi', opts:split('Straight, Silky Straight, Wavy, Curly, Coily, Kinky, Afro Texture, Locs, Braids, Twists, Textured Blowout')},
+      {id:'hairstyle', label:'Hairstyle', type:'multi', opts:split('Long Straight, Middle Part, Side Part, Silk Press, Bob, Blunt Bob, Asymmetrical Bob, Pixie, High Ponytail, Low Ponytail, Bubble Ponytail, Half-Up Ponytail, Pigtails, Afro Puffs, Giant Afro Puffs, Space Buns, Oversized Fluffy Buns, Sleek Bun, Messy Bun, High Bun, Braided Bun, Box Braids, Knotless Braids, Jumbo Braids, Micro Braids, Cornrows, Fulani Braids, Passion Twists, Senegalese Twists, Locs, Butterfly Locs, Faux Locs, Spiral Curls, Corkscrew Curls, Roller Set, Flexi-Rod Curls, Big 90s Curls, Fluffy Blowout, Long Waves, Crimped Hair')},
+      {id:'hairAccessories', label:'Hair Accessories', type:'multi', opts:split('Butterfly Clips, Barrettes, Beads, Hair Rings, Flexi Rods, Rollers, Bows, Scrunchies, Pearls, Rhinestones, Flowers, Miniature Handbags, Miniature Sunglasses, Miniature Shoes, Tiny Characters, Mini Dolls, Candy Charms, Christmas Ornaments, Snowflakes, Candy Canes, Gingerbread Charms, Halloween Bats, Ghost Clips, Pumpkin Clips, Spiderweb Accessories')},
+      {id:'hairColor', label:'Hair Color', type:'multi', opts:split('Jet Black, Natural Black, Dark Brown, Chocolate, Auburn, Copper, Burgundy, Honey Blonde, Platinum Blonde, Caramel Highlights, Blonde Highlights, Pink, Hot Pink, Lavender, Purple, Blue, Teal, Green, Red, Ombre, Split Dye, Multicolor')},
+    ]
+  },
+  {
+    id:'body', num:7, title:'Body + Outfit', desc:'Build the silhouette and wardrobe.', lockable:true,
+    fields:[
+      {id:'bodyStyle', label:'Body Style', type:'multi', opts:split('Petite, Slim, Athletic, Curvy, Thick, Plus Size, Hourglass, Pear Shape, Tall, Short, Fashion-Doll Proportions, Exaggerated Doll Proportions, Oversized Head, Tiny Waist, Long Legs, Fuller Hips')},
+      {id:'outfit', label:'Outfit', type:'multi', opts:split('Tracksuit, Sweatsuit, Hoodie, Cropped Hoodie, Joggers, Cargo Pants, Wide-Leg Pants, Leggings, Flared Pants, Jeans, Distressed Denim, Mini Skirt, Pleated Skirt, Tennis Skirt, Shorts, Biker Shorts, Romper, Jumpsuit, Bodysuit, Tube Top, Crop Top, Graphic T-Shirt, Oversized T-Shirt, Sweater, Knit Sweater, Varsity Jacket, Bomber Jacket, Blazer, Oversized Blazer, Puffer Jacket, Denim Jacket, Leather Jacket, Faux-Fur Coat, Dress, Mini Dress, Maxi Dress, Party Dress, Holiday Dress, Pajamas, Christmas Pajamas, Halloween Costume-Inspired Fashion, Nurse Scrubs, Business Suit, Kreative Professional')},
+      {id:'designerBrands', label:'Designer / Fashion Brand Inspiration', optional:true, type:'multi', opts:split('Fendi, Gucci, Louis Vuitton, Chanel, Prada, Versace, Dior, Balenciaga, Burberry, Hermès, Saint Laurent, Givenchy, Dolce & Gabbana, Off-White, Balmain, Moschino, Valentino, Bottega Veneta, Celine, Coach, Michael Kors, Kate Spade, Tory Burch, Ralph Lauren, Tommy Hilfiger, Juicy Couture, Baby Phat, Coogi, Nike, Jordan, Adidas, Puma, Fila, Timberland, Ugg')},
+      {id:'fashionAesthetic', label:'Fashion Aesthetic', type:'multi', opts:split('Streetwear, Luxury Streetwear, Y2K, 90s, Preppy, Glam, Girly, Sporty, Cozy, Casual, Designer-Inspired, Editorial, Business, Athleisure, Alternative, Punk, Goth, Western, Holiday, Halloween, Christmas, Winter, Fall')},
+    ]
+  },
+  {
+    id:'shoes', num:8, title:'Shoes + Accessories', desc:'Optional finishing details.', lockable:true,
+    fields:[
+      {id:'shoes', label:'Shoes', type:'multi', opts:split('Sneakers, Chunky Sneakers, Platform Sneakers, High Tops, Retro Sneakers, Basketball Sneakers, Combat Boots, Platform Boots, Knee-High Boots, Ankle Boots, Ugg-Inspired Boots, Heels, Platform Heels, Block Heels, Pumps, Sandals, Platform Sandals, Clogs, Platform Clogs, Slippers, Fuzzy Slippers, Christmas Slippers, Mary Janes, Loafers')},
+      {id:'accessories', label:'Accessories', type:'multi', opts:split('Oversized Glasses, Tinted Glasses, Sunglasses, Baseball Cap, Snapback, Fitted Cap, Trucker Hat, Hoop Earrings, Statement Earrings, Stud Earrings, Necklaces, Layered Chains, Choker, Bracelets, Bangles, Rings, Watch, Handbag, Mini Handbag, Backpack, Phone, Tablet, Laptop, Headphones, Camera, Notebook, Coffee Cup, Beauty Tools, Hair Tools, Makeup Bag, Shopping Bags')},
+      {id:'shoeAccessoryNotes', label:'Shoe / Accessory Color Notes', optional:true, type:'text', placeholder:'Example: pastel yellow shoes with pink charms'},
+    ]
+  },
+  {
+    id:'personality', num:9, title:'Personality + Theme', desc:'Select a mood or general theme.', lockable:true,
+    fields:[
+      {id:'personality', label:'Personality', type:'multi', opts:split('Sweet, Confident, Bossy, Bougie, Sassy, Funny, Sarcastic, Shy, Playful, Rebellious, Glamorous, Sophisticated, Professional, Kreative, Nerdy, Fashion Obsessed, Beauty Obsessed, Sneakerhead, Cozy Girl, Holiday Lover, Spooky Girl, Christmas Lover')},
+      {id:'generalTheme', label:'General Theme', type:'multi', opts:split('Everyday, Fashion, Beauty, Business, Birthday, Girls Night, Shopping, Brunch, Travel, School, College, Graduation, Salon, Nail Salon, Makeup, Social Media, Kreator, Entrepreneur, Gamer, Music, Pajama Party, Cozy Day, Winter, Fall, Spring, Summer')},
+    ]
+  },
+  {
+    id:'holidays', num:10, title:'Holidays + Seasons', desc:'Dial in a specific holiday or season in depth.', lockable:true,
+    fields:[
+      {id:'halloweenTheme', label:'Halloween Theme', type:'multi', opts:split('Cute Halloween, Spooky Glam, Gothic Halloween, Pink Halloween, Purple Halloween, Orange + Black, Haunted House, Pumpkin Patch, Witchy Fashion, Glam Witch, Vampire Glam, Skeleton Fashion, Ghost Theme, Candy Corn, Bats, Spiderwebs, Black Cats, Potions, Cauldron, Haunted Carnival, Horror Movie Night, Halloween Pajama Party, Halloween Shopping, Halloween Beauty, Halloween Streetwear')},
+      {id:'christmasTheme', label:'Christmas Theme', type:'multi', opts:split('Classic Christmas, Pink Christmas, Luxury Christmas, Cozy Christmas, Christmas Glam, Y2K Christmas, Streetwear Christmas, Christmas Pajamas, Christmas Morning, Christmas Shopping, Christmas Party, Christmas Beauty, Candy Cane, Gingerbread, Peppermint, Hot Cocoa, Christmas Cookies, Christmas Tree, Ornament, Presents, Snowflake, Winter Wonderland, North Pole, Mrs. Claus Inspired, Santa-Inspired Streetwear, Elf-Inspired Fashion, Christmas Sweater, Christmas Sneakerhead, Pinkmas, Black + Gold Christmas, Red + White Christmas, Emerald + Gold Christmas, Pastel Christmas')},
+      {id:'valentinesTheme', label:"Valentine's Day Theme", type:'multi', opts:split("Classic Valentine, Pink Valentine, Red Valentine, Galentine's Day, Anti-Valentine, Heart Print, Cupid Theme, Rose Theme, Chocolate Box, Love Letter, XOXO, Candy Heart, Lace + Hearts, Valentine Glam, Valentine Streetwear, Valentine Pajamas, Valentine Shopping, Valentine Brunch, Self-Love Theme, Broken Heart Club")},
+      {id:'easterTheme', label:'Easter Theme', type:'multi', opts:split('Classic Easter, Pastel Easter, Easter Bunny, Easter Egg Hunt, Spring Bonnet, Easter Sunday Best, Easter Basket, Floral Easter, Gingham Easter, Easter Brunch, Easter Church Outfit, Easter Candy, Bunny Ears, Chick Theme, Carrot Print')},
+      {id:'thanksgivingTheme', label:'Thanksgiving Theme', type:'multi', opts:split('Classic Thanksgiving, Friendsgiving, Cozy Thanksgiving, Thanksgiving Feast, Harvest Theme, Pumpkin Spice, Fall Harvest, Thanksgiving Family Dinner, Gratitude Theme, Turkey Day, Autumn Leaves, Plaid Thanksgiving, Thanksgiving Shopping, Cornucopia')},
+      {id:'newYearsTheme', label:"New Year's Theme", type:'multi', opts:split("Classic New Year, NYE Glam, Champagne Theme, Countdown Theme, Sparkler Theme, Gold + Black NYE, Sequin New Year, Resolution Theme, Midnight Kiss, Confetti Drop, New Year Fireworks, Disco Ball Theme, Fresh Start Theme")},
+      {id:'juneteenthTheme', label:'Juneteenth Theme', type:'multi', opts:split('Classic Juneteenth, Freedom Day, Red Black + Green, Pan-African Pride, Juneteenth Cookout, Black Joy, Ancestral Pride, Juneteenth Family Reunion, Liberation Theme, Community Celebration, Black Excellence, Juneteenth Flag Colors, Soul Food Theme')},
+      {id:'july4thTheme', label:'4th of July Theme', type:'multi', opts:split('Classic 4th of July, Red White + Blue, Firework Theme, Stars + Stripes, Patriotic Glam, BBQ Theme, Cookout Theme, Summer Cookout, Flag Print, Independence Day, Sparkler Night, Americana Theme, Beach Fourth')},
+      {id:'winterTheme', label:'Winter Theme', type:'multi', opts:split('Cozy Winter, Winter Wonderland, Snow Day, Ski Lodge, Hot Cocoa Season, Fireplace Theme, Winter Layers, Puffer Jacket Season, Ice Skating, Snowball Fight, Winter Fashion Editorial, Frosty Aesthetic, Polar Theme')},
+      {id:'fallTheme', label:'Fall Theme', type:'multi', opts:split('Cozy Fall, Pumpkin Spice Season, Fall Foliage, Sweater Weather, Apple Picking, Fall Festival, Plaid Season, Autumn Aesthetic, Cottagecore Fall, Fall Fashion Editorial, Bonfire Night, Harvest Moon, Back to School Fall')},
+      {id:'springTheme', label:'Spring Theme', type:'multi', opts:split('Spring Awakening, Floral Spring, Cherry Blossom, Garden Party, Spring Cleaning Glow-Up, Pastel Spring, Rainy Day Chic, May Flowers, Spring Fashion Editorial, Picnic Theme, Butterfly Season, Fresh Bloom')},
+      {id:'summerTheme', label:'Summer Theme', type:'multi', opts:split('Beach Day, Poolside Glam, Summer Festival, Tropical Vacation, Summer Road Trip, Ice Cream Theme, Sun-Kissed Glow, Summer Concert, Beach Bum, Summer Fashion Editorial, Watermelon Theme, Neon Summer, Rooftop Summer')},
+    ]
+  },
+  {
+    id:'profession', num:11, title:'Profession', desc:'Give your character an occupation or career identity.', lockable:true,
+    fields:[
+      {id:'profession', label:'Profession', type:'multi', opts:split('Electrician, Plumber, Construction Worker, Mechanic, Truck Driver, Welder, Carpenter, HVAC Technician, Landscaper, Warehouse Worker, Factory Worker, Custodian, Sanitation Worker, Teacher, Nurse, Doctor, Lawyer, Accountant, Engineer, Software Developer, Marketing Manager, HR Manager, Financial Analyst, Consultant, Architect, Entrepreneur, Small Business Owner, Content Creator, Influencer, Graphic Designer, Photographer, Artist, Musician, Fashion Designer, Event Planner, Author, Podcaster, Hairstylist, Nail Artist, Makeup Artist, Chef, Line Cook, Dishwasher, Bartender, Waiter / Waitress, Cashier, Grocery Store Worker, Flight Attendant, Real Estate Agent, Personal Trainer, Barber, Esthetician, Housekeeper, Nanny / Babysitter, Delivery Driver, Security Guard, Farmer, Police Officer, Firefighter, Military, Social Worker, Nonprofit Worker, Postal Worker, Student, Stay-at-Home Parent, Retired, Freelancer, Gamer / Streamer, Athlete, Coach, Pastor / Faith Leader')},
+    ]
+  },
+  {
+    id:'typography', num:12, title:'Typography', desc:'Use exact text and style it to match.', lockable:true,
+    fields:[
+      {id:'exactText', label:'Exact Text', type:'text', placeholder:'Example: "Holiday Mood"', hint:'The generator will append strict text-accuracy instructions automatically.'},
+      {id:'subtext', label:'Subtext / Tagline', optional:true, type:'text', placeholder:'Example: "Est. 2025" — a smaller line under the main text', hint:'A secondary line of text, styled to complement the main text.'},
+      {id:'numberYear', label:'Number / Year', optional:true, type:'text', placeholder:'Example: "25" or "Class of 2025"', hint:'Great for varsity numbers, chenille patches, and class years.'},
+      {id:'typographyStyle', label:'Typography Style', type:'multi', opts:split('Bold Sans Serif, Condensed Sans Serif, Rounded, Bubble, Puffy, Balloon, Graffiti, Wildstyle Graffiti, Handwritten, Script, Brush Script, Calligraphy, Retro, Y2K, Varsity, Collegiate, Letterman, Western, Gothic, Blackletter, Luxury Serif, Editorial Serif, Cartoon-Inspired, Streetwear, Chrome, Inflated, Melted, Candy, Frosted, Chenille, Crochet, Knitted, Furry, Plush, Quilted, Floral, Rhinestone, Gemstone, Metallic, Foil Stamped, Neon, Neon Sign, Embroidered, Stitched, Cross-Stitch, Patch, Sticker Style, Comic Book, Airbrush, Tattoo Script, Stencil, Chalk, Typewriter, Woodblock, Vintage Sign Painted, Drippy Paint, Marker, Ransom Note, Cut Paper Collage, Newspaper Clipping, Monogram, Greek Letter Style')},
+      {id:'textCase', label:'Text Case', type:'multi', opts:split('Uppercase, Lowercase, Title Case, Small Caps, Mixed Case')},
+      {id:'textWeight', label:'Text Weight', type:'multi', opts:split('Thin, Light, Regular, Medium, Bold, Extra Bold, Black / Heavy, Variable Weight')},
+      {id:'letterSpacing', label:'Letter Spacing', type:'multi', opts:split('Tight, Normal, Wide, Extra Wide, Condensed')},
+      {id:'material', label:'Material', type:'multi', opts:split('Matte, Glossy, Chrome, Gold, Silver, Rose Gold, Glitter, Rhinestone, Crystal, Gel, Glass, Plastic, Rubber, Balloon, Puffy, Plush, Fur, Faux Fur, Chenille, Crochet, Knitted, Terry Cloth, Fleece, Sherpa, Wool, Velvet, Satin, Denim, Leather, Suede, Sequin, Foil, Enamel, Vinyl, Candy, Chocolate, Frosting, Gingerbread, Peppermint, Snow, Ice, Fire, Smoke, Slime, Flowers, Feathers')},
+      {id:'pattern', label:'Pattern', type:'multi', opts:split('Solid, Gradient, Ombre, Leopard, Cheetah, Zebra, Cow Print, Snake Print, Plaid, Gingham, Polka Dot, Stripes, Diagonal Stripes, Checkerboard, Houndstooth, Argyle, Chevron, Herringbone, Paisley, Damask, Floral, Tropical, Camo, Tie-Dye, Marble, Denim Wash, Distressed, Splatter Paint, Confetti, Mosaic, Hearts, Stars, Snowflakes, Candy Cane Stripe, Gingerbread Pattern, Christmas Plaid, Halloween Pattern, Pumpkin, Bats, Spiderweb')},
+      {id:'effects', label:'Effects', type:'multi', opts:split('Flat, 3D, Puffy 3D, Extruded, Layered, Shadow, Drop Shadow, Long Shadow, Glow, Neon Glow, Chrome Reflection, Metallic Reflection, Holographic, Iridescent, Embossed, Debossed, Inflated, Beveled, Frosted, Icy, Snow Covered, Dripping, Melting, Sparkling, Sequin Shimmer, Foil Shine, Weathered, Vintage Faded, Cracked, Rhinestone Outline, Stitched Outline, Double Outline')},
+      {id:'typographyLayout', label:'Typography Layout', type:'multi', opts:split('Straight, Stacked, Arched, Curved, Wavy, Angled, Diagonal, Vertical, Circular, Badge, Poster, Scattered, Repeating, Mirrored, Mixed Pattern Per Letter, Oversized Background Text, Text Behind Character, Text In Front of Character, Character Sitting on Text, Character Leaning on Text, Character Emerging Through Text, Text Wrapped Around Character')},
+      {id:'textCharacterBalance', label:'Text-to-Character Balance', type:'multi', opts:split('Text Dominant, Balanced, Character Dominant, Text Only Focus')},
+      {id:'typographyColorNotes', label:'Typography Color Notes', optional:true, type:'text', placeholder:'Example: hot pink letters with a white outline and gold drop shadow'},
+      {id:'autoMatch', label:'', type:'checkbox', checkboxLabel:'Automatically match character + typography'},
+    ]
+  },
+  {
+    id:'elements', num:13, title:'Supporting Elements + Colors', desc:'Optional decorative elements and palette direction.', lockable:true,
+    fields:[
+      {id:'supportingElements', label:'Supporting Elements', type:'multi', opts:split('Stars, Sparkles, Hearts, Butterflies, Flowers, Roses, Clouds, Rainbows, Sun, Moon, Bows, Beads, Diamonds, Pearls, Rhinestones, Chains, Crowns, Flames, Lightning Bolts, Skulls, Lips, Eyes, Smiley Faces, Peace Signs, Speech Bubbles, Exclamation Marks, Question Marks, Arrows, Graffiti Marks, Paint Splashes, Paint Brushes, Stickers, Dollar Signs, Money, Shopping Bags, Handbags, Sneakers, Headphones, Phones, Laptops, Cameras, Makeup, Hair Tools, Musical Notes, Vinyl Records, Cassette Tapes, Basketballs, Trophies, Medals, Dice, Playing Cards, Game Controllers, Airplanes, Palm Trees, Coffee, Books, Notebooks, Confetti, Balloons, Fireworks, Lollipops, Gumdrops, Sprinkles, Cotton Candy, Rock Candy, Jellybeans, Pumpkins, Ghosts, Bats, Spiderwebs, Candy Corn, Black Cats, Witch Hats, Potions, Cauldrons, Tombstones, Snowflakes, Ornaments, Candy Canes, Gingerbread, Christmas Trees, Gifts, Stockings, Peppermints, Hot Cocoa, Christmas Lights, Snow, Bells, Holly, Cookies')},
+      {id:'presetPalette', label:'Preset Palette', optional:true, type:'multi', opts:PALETTE_PRESET_OPTS},
+      {id:'colors', label:'Custom Colors', type:'colors'},
+    ]
+  },
+  {
+    id:'pose', num:14, title:'Pose + Background', desc:'Control where the character appears and how they pose.', lockable:true,
+    fields:[
+      {id:'pose', label:'Pose', type:'multi', opts:split('Standing, Walking, Sitting, Cross-Legged, Leaning, Sitting on Typography, Leaning Against Typography, Arms Crossed, Hand on Hip, Holding Phone, Taking Selfie, Holding Handbag, Looking Over Shoulder, Pointing, Waving, Dancing, Jumping, Shopping, Drinking Coffee, Typing, Working on Laptop, Adjusting Glasses, Playing With Hair, Rolling Eyes')},
+      {id:'background', label:'Background', type:'multi', opts:split('Transparent Background, White Studio, Solid Color, Gradient, Paint Splatter Background, Luxury Studio, Editorial Studio, Bedroom, Beauty Room, Closet, Salon, Office, Classroom, City Street, Shopping Center, Christmas Living Room, Christmas Tree, Winter Wonderland, Snowy Street, Halloween Room, Haunted House, Pumpkin Patch, Abstract, Typography Background, Modern Minimalist Loft, Modern Penthouse, Modern Boutique, Modern Art Gallery, Modern Kitchen, Modern Coffee Shop, Modern Rooftop Lounge, Modern Fitness Studio, Neon City Night, Glass Skyscraper Skyline, Pastel Geometric Shapes, Marble and Gold Studio, Instagram Pink Studio, Retro 70s Living Room, Retro 80s Neon Arcade, Retro 90s Bedroom, 90s Sitcom Living Room, Y2K Chrome Room, Vintage Diner, Vintage Record Shop, Vintage Beauty Salon, Vintage Barbershop, Vintage Roller Rink, Vintage Hollywood Glam, Vintage Parisian Cafe, Vintage Floral Wallpaper, Vintage Polaroid Frame, Vintage Postcard, Art Deco Lounge, Victorian Parlor, Retro Supper Club, Vintage Drive-In Theater, Vintage Soul Train Stage, Vintage Magazine Cover, Retro Checkerboard Floor, Vintage Carnival, Old School Hip-Hop Block Party')},
+    ]
+  },
+  {
+    id:'composition', num:15, title:'Composition + Rendering', desc:'Final presentation and quality direction.', lockable:true,
+    fields:[
+      {id:'composition', label:'Composition', type:'multi', opts:split('Full Body, Three-Quarter Body, Waist Up, Bust Portrait, Close-Up, Extreme Beauty Close-Up, Character Centered, Character Left, Character Right, Asymmetrical, Editorial Poster, Character Trio, Product Graphic, Sticker Composition, PNG Asset, Character + Giant Text, Character Sitting on Letters, Character in Front of Letters, Character Behind Letters')},
+      {id:'renderingStyle', label:'Rendering Style', type:'multi', opts:split('High-Quality Commercial, Premium Commercial Quality, Print-Ready Commercial Grade, Soft 3D, Semi-Realistic, Hyper-Realistic, Editorial, Animated Film Quality, Toy Photography, Collectible Doll, Fashion Campaign, Beauty Campaign, Flat Vector Illustration, Photorealistic Render, Stylized 3D Toy Render, Sticker / PNG Cutout')},
+    ]
+  },
+];
+
+// ============ STATE ============
+const state = {}; // fieldId -> Set (multi) or string (single/text) or bool (checkbox) or {primary,secondary,accent,neutral}
+const locks = {}; // sectionId -> bool
+const customOpts = {}; // fieldId -> array of user-typed custom option strings (multi fields only)
+let activeIndex = 0;
+
+SECTIONS.forEach((sec)=>{
+  locks[sec.id] = false;
+  sec.fields.forEach(f=>{
+    if(f.type==='multi'){ state[f.id] = new Set(); customOpts[f.id] = []; }
+    else if(f.type==='checkbox') state[f.id] = false;
+    else if(f.type==='colors') state[f.id] = {primary:'#C97B93', secondary:'#8CA47E', accent:'#2B3D28', neutral:'#FFFFFF'};
+    else state[f.id] = '';
+  });
+});
+
+function addCustomOption(fieldId, rawValue){
+  const value = (rawValue||'').trim();
+  if(!value) return;
+  const already = customOpts[fieldId].some(v=> v.toLowerCase()===value.toLowerCase());
+  const inBuiltins = SECTIONS.flatMap(s=>s.fields).find(f=>f.id===fieldId).opts.some(v=> v.toLowerCase()===value.toLowerCase());
+  if(!already && !inBuiltins) customOpts[fieldId].push(value);
+  state[fieldId].add(value);
+  renderSections();
+  refreshAll();
+  const col = document.getElementById('sectionsCol');
+  const restoredInput = col.querySelector ? col.querySelector(`.custom-add-input[data-field-id="${fieldId}"]`) : null;
+  if(restoredInput){ restoredInput.value=''; restoredInput.focus(); }
+}
+
+const DEFAULT_COLORS = {primary:'#C97B93', secondary:'#8CA47E', accent:'#2B3D28', neutral:'#FFFFFF'};
+
+const FIELD_INDEX = {};
+SECTIONS.forEach(sec=> sec.fields.forEach(f=>{ FIELD_INDEX[f.id] = {field:f, sectionId:sec.id}; }));
+
+function randomizeFields(fieldIds){
+  fieldIds.forEach(id=>{
+    const info = FIELD_INDEX[id];
+    if(!info || locks[info.sectionId]) return;
+    const f = info.field;
+    if(f.type==='multi'){
+      const allOpts = f.opts.concat(customOpts[id]||[]);
+      const count = 1 + Math.floor(Math.random()*3);
+      const s = new Set();
+      for(let i=0;i<count;i++) s.add(allOpts[Math.floor(Math.random()*allOpts.length)]);
+      state[id] = s;
+    }
+  });
+}
+
+function addRandomToField(id, pool, count){
+  if(locks[FIELD_INDEX[id].sectionId]) return;
+  if(!(state[id] instanceof Set)) state[id] = new Set();
+  for(let i=0;i<count;i++){
+    state[id].add(pool[Math.floor(Math.random()*pool.length)]);
+  }
+}
+
+/* ============ SNAPSHOT / AUTOSAVE ============ */
+function serializeSnapshot(){
+  const snapState = {};
+  for(const [k,v] of Object.entries(state)){
+    snapState[k] = (v instanceof Set) ? Array.from(v) : v;
+  }
+  return {
+    state: snapState,
+    customOpts: JSON.parse(JSON.stringify(customOpts)),
+    locks: {...locks},
+    activeIndex,
+  };
+}
+
+function applySnapshot(snap){
+  if(!snap || !snap.state) return;
+  for(const [k,v] of Object.entries(snap.state)){
+    if(!(k in state)) continue;
+    state[k] = Array.isArray(v) ? new Set(v) : v;
+  }
+  if(snap.customOpts){
+    for(const [k,v] of Object.entries(snap.customOpts)){
+      if(k in customOpts) customOpts[k] = v.slice();
+    }
+  }
+  if(snap.locks){
+    for(const [k,v] of Object.entries(snap.locks)){
+      if(k in locks) locks[k] = v;
+    }
+  }
+  if(typeof snap.activeIndex === 'number' && snap.activeIndex >= 0 && snap.activeIndex < SECTIONS.length){
+    activeIndex = snap.activeIndex;
+  }
+}
+
+const DRAFT_KEY = 'stg_kct_draft';
+function saveDraft(){
+  try{ localStorage.setItem(DRAFT_KEY, JSON.stringify(serializeSnapshot())); }catch(e){}
+}
+function loadDraft(){
+  try{
+    const raw = localStorage.getItem(DRAFT_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){ return null; }
+}
+function clearDraft(){
+  try{ localStorage.removeItem(DRAFT_KEY); }catch(e){}
+}
+
+/* ============ FIELD SELECTION HELPERS ============ */
+function sectionHasSelection(sec){
+  return sec.fields.some(f=>{
+    const v = state[f.id];
+    if(v instanceof Set) return v.size>0;
+    if(typeof v==='boolean') return v;
+    if(f.type==='colors') return JSON.stringify(v)!==JSON.stringify(DEFAULT_COLORS);
+    return !!v;
+  });
+}
+
+/* ============ RENDER: FIELD ============ */
+function renderField(f){
+  const wrap = document.createElement('div');
+  wrap.className='field';
+
+  if(f.type==='checkbox'){
+    const line = document.createElement('label');
+    line.className='checkline';
+    const cb = document.createElement('input');
+    cb.type='checkbox';
+    cb.checked = state[f.id];
+    cb.addEventListener('change', ()=>{ state[f.id]=cb.checked; refreshAll(); });
+    line.appendChild(cb);
+    line.appendChild(document.createTextNode(f.checkboxLabel));
+    wrap.appendChild(line);
+    return wrap;
+  }
+
+  if(f.label){
+    const lab = document.createElement('div');
+    lab.className='field-label';
+    lab.textContent=f.label;
+    if(f.optional){
+      const tag = document.createElement('span');
+      tag.className='opt'; tag.textContent='Optional';
+      lab.appendChild(tag);
+    }
+    wrap.appendChild(lab);
+  }
+
+  if(f.type==='text'){
+    const inp = document.createElement('input');
+    inp.type='text';
+    inp.placeholder = f.placeholder||'';
+    inp.value = state[f.id];
+    inp.addEventListener('input', ()=>{ state[f.id]=inp.value; refreshAll(); });
+    wrap.appendChild(inp);
+    if(f.hint){
+      const h = document.createElement('div');
+      h.className='hint'; h.textContent=f.hint;
+      wrap.appendChild(h);
+    }
+    return wrap;
+  }
+
+  if(f.type==='single'){
+    const chips = document.createElement('div');
+    chips.className='chips';
+    f.opts.forEach(opt=>{
+      const c = document.createElement('button');
+      c.type='button';
+      c.className='chip';
+      c.textContent=opt;
+      const isSel = state[f.id]===opt;
+      c.setAttribute('aria-pressed', isSel ? 'true' : 'false');
+      if(isSel) c.classList.add('sel','pinkish');
+      c.addEventListener('click', ()=>{
+        state[f.id] = (state[f.id]===opt) ? '' : opt;
+        if(f.id==='presetPalette' && state[f.id] && PALETTE_PRESETS[state[f.id]]){
+          state.colors = {...PALETTE_PRESETS[state[f.id]]};
+        }
+        renderSections();
+        refreshAll();
+      });
+      chips.appendChild(c);
+    });
+    wrap.appendChild(chips);
+    return wrap;
+  }
+
+  if(f.type==='multi'){
+    const chips = document.createElement('div');
+    chips.className='chips';
+    // order: None first, options A–Z, your own added options, then Custom last
+    const cmp = (a,b)=> a.localeCompare(b, undefined, {numeric:true, sensitivity:'base'});
+    const builtIn = f.opts.filter(o=> !/^Custom\b/i.test(o)).sort(cmp);
+    const pinnedCustom = f.opts.filter(o=> /^Custom\b/i.test(o));
+    const allOpts = builtIn.concat(customOpts[f.id], pinnedCustom);
+
+    const noneChip = document.createElement('button');
+    noneChip.type='button';
+    noneChip.className='chip chip-none';
+    noneChip.textContent='None';
+    const syncNone = ()=>{
+      const on = state[f.id].size===0;
+      noneChip.classList.toggle('sel', on);
+      noneChip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    noneChip.addEventListener('click', ()=>{
+      state[f.id].clear();
+      chips.querySelectorAll('.chip:not(.chip-none):not(.chip-custom-trigger)').forEach(el=>{
+        el.classList.remove('sel'); el.setAttribute('aria-pressed','false');
+      });
+      syncNone();
+      refreshAll();
+    });
+    syncNone();
+    chips.appendChild(noneChip);
+
+    allOpts.forEach(opt=>{
+      const c = document.createElement('button');
+      c.type='button';
+      c.className='chip';
+      if(customOpts[f.id].includes(opt)) c.classList.add('custom');
+      c.textContent=opt;
+      const isSel = state[f.id].has(opt);
+      c.setAttribute('aria-pressed', isSel ? 'true' : 'false');
+      if(isSel) c.classList.add('sel');
+      c.addEventListener('click', ()=>{
+        if(state[f.id].has(opt)){
+          state[f.id].delete(opt);
+          c.classList.remove('sel');
+          c.setAttribute('aria-pressed', 'false');
+        } else {
+          state[f.id].add(opt);
+          c.classList.add('sel');
+          c.setAttribute('aria-pressed', 'true');
+          if(f.id==='presetPalette' && PALETTE_PRESETS[opt]){
+            state.colors = {...PALETTE_PRESETS[opt]};
+            updateColorInputsDisplay();
+          }
+        }
+        syncNone();
+        refreshAll();
+      });
+      chips.appendChild(c);
+    });
+
+    if(!pinnedCustom.length){
+      const customTrigger = document.createElement('button');
+      customTrigger.type='button';
+      customTrigger.className='chip chip-custom-trigger';
+      customTrigger.textContent='Custom +';
+      customTrigger.addEventListener('click', ()=>{
+        const inp = wrap.querySelector('.custom-add-input');
+        if(inp) inp.focus();
+      });
+      chips.appendChild(customTrigger);
+    }
+    wrap.appendChild(chips);
+
+    const customRow = document.createElement('div');
+    customRow.className='custom-add-row';
+    const customInput = document.createElement('input');
+    customInput.type='text';
+    customInput.placeholder='Type your own option and press Enter…';
+    customInput.className='custom-add-input';
+    customInput.setAttribute('data-field-id', f.id);
+    customInput.setAttribute('aria-label', f.label ? `Add a custom ${f.label} option` : 'Add a custom option');
+    const customBtn = document.createElement('button');
+    customBtn.type='button';
+    customBtn.className='custom-add-btn';
+    customBtn.textContent='+ Add';
+    const submit = ()=>{ addCustomOption(f.id, customInput.value); };
+    customInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); submit(); } });
+    customBtn.addEventListener('click', submit);
+    customRow.appendChild(customInput);
+    customRow.appendChild(customBtn);
+    wrap.appendChild(customRow);
+
+    return wrap;
+  }
+
+  if(f.type==='colors'){
+    const row = document.createElement('div');
+    row.className='color-row';
+    ['primary','secondary','accent','neutral'].forEach(key=>{
+      const cf = document.createElement('div');
+      cf.className='color-field';
+      const lab = document.createElement('label');
+      lab.textContent = key.charAt(0).toUpperCase()+key.slice(1);
+      const inp = document.createElement('input');
+      inp.type='color';
+      inp.value = state[f.id][key];
+      inp.addEventListener('input', ()=>{ state[f.id][key]=inp.value; refreshAll(); });
+      cf.appendChild(lab); cf.appendChild(inp);
+      row.appendChild(cf);
+    });
+    wrap.appendChild(row);
+    return wrap;
+  }
+  return wrap;
+}
+
+function updateColorInputsDisplay(){
+  const panel = document.getElementById('mainPanel');
+  const inputs = panel.querySelectorAll ? panel.querySelectorAll('.color-field input[type=color]') : [];
+  const keys = ['primary','secondary','accent','neutral'];
+  inputs.forEach((inp,i)=>{ if(keys[i] && state.colors[keys[i]]) inp.value = state.colors[keys[i]]; });
+}
+
+/* ============ RENDER: SECTIONS (accordion, stacked) ============ */
+const openSections = {};
+SECTIONS.forEach((sec, i)=>{ openSections[sec.id] = i===0; }); // first section open by default
+
+function renderSections(){
+  const col = document.getElementById('sectionsCol');
+  const scrollPositions = {};
+  col.querySelectorAll ? col.querySelectorAll('.section-body').forEach(b=>{
+    const id = b.getAttribute('data-section-id');
+    if(id) scrollPositions[id] = b.scrollTop;
+  }) : null;
+
+  col.innerHTML = '';
+  SECTIONS.forEach(sec=>{
+    const isOpen = !!openSections[sec.id];
+    const isLocked = !!locks[sec.id];
+    const isFilled = sectionHasSelection(sec);
+
+    const secEl = document.createElement('div');
+    secEl.className = 'section' + (isOpen?' open':'') + (isLocked?' locked':'') + (isFilled?' filled':'');
+
+    const head = document.createElement('div');
+    head.className = 'section-head';
+    head.innerHTML = `
+      <div class="section-head-left">
+        <div class="section-num">${sec.num}</div>
+        <div class="section-titles">
+          <h3>${sec.title}</h3>
+          <p>${sec.desc}</p>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <button type="button" class="lock-toggle ${isLocked?'on':''}" aria-pressed="${isLocked?'true':'false'}" aria-label="${isLocked?'Unlock':'Lock'} the ${sec.title} section">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          ${isLocked?'Locked':'Lock'}
+        </button>
+        <svg class="section-chev" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+    `;
+    head.querySelector('.lock-toggle').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      locks[sec.id] = !locks[sec.id];
+      renderSections();
+      saveDraft();
+    });
+    head.addEventListener('click', ()=>{
+      openSections[sec.id] = !openSections[sec.id];
+      renderSections();
+    });
+    secEl.appendChild(head);
+
+    const body = document.createElement('div');
+    body.className = 'section-body';
+    body.setAttribute('data-section-id', sec.id);
+    const inner = document.createElement('div');
+    inner.className = 'section-body-inner';
+    sec.fields.forEach(f=> inner.appendChild(renderField(f)));
+    body.appendChild(inner);
+    secEl.appendChild(body);
+    if(scrollPositions[sec.id]) body.scrollTop = scrollPositions[sec.id];
+
+    col.appendChild(secEl);
+  });
+}
+
+function scrollPanelIntoView(){} // no-op kept for compatibility with call sites below
+
+/* ============ PROMPT GENERATION ============ */
+function listOrNull(fieldId){
+  const v = state[fieldId];
+  if(v instanceof Set) return v.size ? Array.from(v).join(', ') : null;
+  return v ? v : null;
+}
+
+/* ---- Shared section text builders ---- */
+function getCharacterText(){
+  const charBits = [];
+  const aes = listOrNull('characterAesthetic');
+  if(aes) charBits.push(`Character aesthetic: ${aes}.`);
+
+  const gen = listOrNull('gender');
+  if(gen) charBits.push(`Gender: ${gen}.`);
+
+  const eth = listOrNull('ethnicity');
+  const skin = listOrNull('skinTone');
+  if(eth) charBits.push(`Ethnicity / cultural appearance: ${eth}.`);
+  if(skin) charBits.push(`Skin tone: ${skin}.`);
+  if(state.appearanceNotes) charBits.push(`Appearance notes: ${state.appearanceNotes}.`);
+
+  const faceBits = [];
+  ['faceShape','expression','eyeShape','eyeColor','lashStyle','lips','teeth'].forEach(id=>{
+    const v = listOrNull(id);
+    if(v) faceBits.push(v);
+  });
+  if(faceBits.length) charBits.push(`Face + expression: ${faceBits.join('; ')}.`);
+
+  const mk = listOrNull('makeup');
+  if(mk) charBits.push(`Makeup: ${mk}.`);
+
+  const nailBits = [];
+  [['nailShape','shape'],['nailLength','length'],['nailStyle','design'],['nailColor','color']].forEach(([id,lbl])=>{
+    const v = listOrNull(id);
+    if(v) nailBits.push(`${v} (${lbl})`);
+  });
+  if(nailBits.length) charBits.push(`Nails: ${nailBits.join('; ')}.`);
+
+  const hairBits = [];
+  ['hairTexture','hairstyle','hairAccessories','hairColor'].forEach(id=>{
+    const v = listOrNull(id);
+    if(v) hairBits.push(v);
+  });
+  if(hairBits.length) charBits.push(`Hair: ${hairBits.join('; ')}.`);
+
+  const bodyBits = [];
+  ['bodyStyle','outfit','fashionAesthetic'].forEach(id=>{
+    const v = listOrNull(id);
+    if(v) bodyBits.push(v);
+  });
+  if(bodyBits.length) charBits.push(`Body + outfit: ${bodyBits.join('; ')}.`);
+
+  const brands = listOrNull('designerBrands');
+  if(brands) charBits.push(`Fashion inspiration: styled in the spirit of ${brands}, using their signature colors, prints and silhouettes in an original, inspired way.`);
+
+  const shoes = listOrNull('shoes');
+  const accs = listOrNull('accessories');
+  if(shoes) charBits.push(`Shoes: ${shoes}.`);
+  if(accs) charBits.push(`Accessories: ${accs}.`);
+  if(state.shoeAccessoryNotes) charBits.push(`Shoe/accessory color notes: ${state.shoeAccessoryNotes}.`);
+
+  const pers = listOrNull('personality');
+  if(pers) charBits.push(`Personality: ${pers}.`);
+
+  const prof = listOrNull('profession');
+  if(prof) charBits.push(`Profession: ${prof}.`);
+
+  const pose = listOrNull('pose');
+  if(pose) charBits.push(`Pose: ${pose}.`);
+
+  return charBits.join(' ');
+}
+
+function getTypographyText(){
+  const typoBits = [];
+  if(state.exactText) typoBits.push(`Exact text to render: "${state.exactText}". Text must be spelled exactly as written, with correct letterforms and no distortion of individual characters.`);
+  if(state.subtext) typoBits.push(`Subtext / tagline: "${state.subtext}". Style to complement the main text, smaller in scale.`);
+  if(state.numberYear) typoBits.push(`Number / year: "${state.numberYear}".`);
+  const style = listOrNull('typographyStyle');
+  const textCase = listOrNull('textCase');
+  const textWeight = listOrNull('textWeight');
+  const letterSpacing = listOrNull('letterSpacing');
+  const material = listOrNull('material');
+  const pattern = listOrNull('pattern');
+  const effects = listOrNull('effects');
+  const layout = listOrNull('typographyLayout');
+  const balance = listOrNull('textCharacterBalance');
+  if(style) typoBits.push(`Typography style: ${style}.`);
+  if(textCase) typoBits.push(`Text case: ${textCase}.`);
+  if(textWeight) typoBits.push(`Text weight: ${textWeight}.`);
+  if(letterSpacing) typoBits.push(`Letter spacing: ${letterSpacing}.`);
+  if(material) typoBits.push(`Material: ${material}.`);
+  if(pattern) typoBits.push(`Pattern: ${pattern}.`);
+  if(effects) typoBits.push(`Effects: ${effects}.`);
+  if(layout) typoBits.push(`Layout: ${layout}.`);
+  if(state.typographyLayout.has('Mixed Pattern Per Letter')){
+    const patternNote = pattern ? ` from the selected patterns (${pattern})` : '';
+    const materialNote = material ? ` and materials (${material})` : '';
+    typoBits.push(`Each letter should use a different pattern${patternNote}${materialNote}, so no two consecutive letters match — this creates a mixed, collage-like lettering effect rather than one uniform pattern across the whole word.`);
+  }
+  if(balance) typoBits.push(`Text-to-character balance: ${balance}.`);
+  if(state.typographyColorNotes) typoBits.push(`Typography color notes: ${state.typographyColorNotes}.`);
+  if(state.autoMatch) typoBits.push("Typography should automatically coordinate with the character's aesthetic, palette, and theme.");
+  return typoBits.join(' ');
+}
+
+function getArtStyleText(){
+  const artStyle = listOrNull('artStyle');
+  return artStyle ? `Art style: ${artStyle}.` : '';
+}
+
+function getThemeText(){
+  const themeBits = [];
+  ['generalTheme','halloweenTheme','christmasTheme','valentinesTheme','easterTheme','thanksgivingTheme','newYearsTheme','juneteenthTheme','july4thTheme','winterTheme','fallTheme','springTheme','summerTheme'].forEach(id=>{
+    const v = listOrNull(id);
+    if(v) themeBits.push(v);
+  });
+  return themeBits.length ? themeBits.join('; ')+'.' : '';
+}
+
+function getElementsText(){
+  const elements = listOrNull('supportingElements');
+  return elements ? elements+'.' : '';
+}
+
+function getColorText(){
+  const c = state.colors;
+  const presetPaletteLabel = listOrNull('presetPalette');
+  if(!presetPaletteLabel && c && JSON.stringify(c) === JSON.stringify(DEFAULT_COLORS)) return '';
+  let colorLine = presetPaletteLabel ? `${presetPaletteLabel}. ` : '';
+  colorLine += `Primary ${c.primary}, Secondary ${c.secondary}, Accent ${c.accent}, Neutral ${c.neutral}.`;
+  return colorLine;
+}
+
+function getBackgroundText(){
+  const bg = listOrNull('background');
+  return bg ? bg+'.' : '';
+}
+
+function getCompRenderText(){
+  const comp = listOrNull('composition');
+  const render = listOrNull('renderingStyle');
+  const compBits = [];
+  if(comp) compBits.push(`Composition: ${comp}.`);
+  compBits.push(`Rendering style: ${render || 'Premium Commercial Quality'}.`);
+  return compBits.join(' ');
+}
+
+/* ---- Combined Prompt (full build, mode-aware) ---- */
+function buildCombinedPrompt(){
+  const parts = [];
+
+  const modesArr = state.creationMode.size ? Array.from(state.creationMode) : ['Character + Typography'];
+  const showCharacter = !(modesArr.length===1 && modesArr[0]==='Typography Only');
+  // if typography has been filled in, include it even when the mode says "Character Only"
+  const typoFilled = !!(state.exactText || state.subtext || state.numberYear || getTypographyText());
+  const showTypography = !(modesArr.length===1 && modesArr[0]==='Character Only') || typoFilled;
+  const modeLabel = (modesArr.length===1 && modesArr[0]==='Character Only' && typoFilled)
+    ? 'character + typography'
+    : modesArr.join(' + ').toLowerCase();
+  const designType = listOrNull('designType');
+  const numChar = listOrNull('numCharacters');
+  const consistency = listOrNull('characterConsistency');
+
+  let opener = `Create a ${modeLabel} design`;
+  if(designType) opener += ` for a ${designType.toLowerCase()}`;
+  if(numChar) opener += `, featuring ${numChar.toLowerCase()}`;
+  opener += '.';
+  parts.push(opener);
+  if(consistency) parts.push(`Character consistency: ${consistency}.`);
+  const artStyleText = getArtStyleText();
+  if(artStyleText) parts.push(artStyleText);
+
+  if(showCharacter){
+    const charText = getCharacterText();
+    if(charText) parts.push(charText);
+  }
+
+  const themeText = getThemeText();
+  if(themeText) parts.push(themeText);
+
+  if(showTypography){
+    const typoText = getTypographyText();
+    if(typoText) parts.push(typoText);
+  }
+
+  const elementsText = getElementsText();
+  if(elementsText) parts.push(`Decorative elements: ${elementsText}`);
+
+  const colorText = getColorText();
+  if(colorText) parts.push(`Color palette: ${colorText}`);
+
+  const bgText = getBackgroundText();
+  if(bgText) parts.push(`Background: ${bgText}`);
+
+  parts.push(getCompRenderText());
+
+  return parts.join(' ').trim();
+}
+
+/* ---- Character-only Prompt ---- */
+function buildCharacterPrompt(){
+  const parts = [];
+  const designType = listOrNull('designType');
+  const numChar = listOrNull('numCharacters');
+  const consistency = listOrNull('characterConsistency');
+
+  let opener = 'Create a character design';
+  if(designType) opener += ` for a ${designType.toLowerCase()}`;
+  if(numChar) opener += `, featuring ${numChar.toLowerCase()}`;
+  opener += '.';
+  parts.push(opener);
+  if(consistency) parts.push(`Character consistency: ${consistency}.`);
+  const artStyleText = getArtStyleText();
+  if(artStyleText) parts.push(artStyleText);
+
+  const charText = getCharacterText();
+  if(charText) parts.push(charText);
+
+  const themeText = getThemeText();
+  if(themeText) parts.push(themeText);
+
+  const elementsText = getElementsText();
+  if(elementsText) parts.push(`Decorative elements: ${elementsText}`);
+
+  const colorText = getColorText();
+  if(colorText) parts.push(`Color palette: ${colorText}`);
+
+  const bgText = getBackgroundText();
+  if(bgText) parts.push(`Background: ${bgText}`);
+
+  parts.push(getCompRenderText());
+
+  return parts.join(' ').trim();
+}
+
+/* ---- Typography-only Prompt ---- */
+function buildTypographyPrompt(){
+  const parts = [];
+  parts.push('Create a typography design.');
+  const artStyleText = getArtStyleText();
+  if(artStyleText) parts.push(artStyleText);
+
+  const typoText = getTypographyText();
+  if(typoText) parts.push(typoText);
+
+  const themeText = getThemeText();
+  if(themeText) parts.push(themeText);
+
+  const elementsText = getElementsText();
+  if(elementsText) parts.push(`Decorative elements: ${elementsText}`);
+
+  const colorText = getColorText();
+  if(colorText) parts.push(`Color palette: ${colorText}`);
+
+  const bgText = getBackgroundText();
+  if(bgText) parts.push(`Background: ${bgText}`);
+
+  parts.push(getCompRenderText());
+
+  return parts.join('\n').trim();
+}
+
+/* ---- Negative Prompt ---- */
+function buildNegativePrompt(){
+  const base = ['blurry','low quality','low resolution','distorted anatomy','extra limbs','extra fingers','missing fingers','deformed hands','asymmetrical face','watermark','signature','duplicate character','mutated proportions','oversaturated','washed out colors','pixelated','artifacting','cropped','out of frame'];
+  const dynamic = [];
+  if(state.exactText) dynamic.push('misspelled text, warped letters, incorrect letterforms, extra or missing letters');
+  if(!listOrNull('halloweenTheme')) dynamic.push('no Halloween imagery unless specified');
+  if(!listOrNull('christmasTheme')) dynamic.push('no Christmas imagery unless specified');
+  return 'Avoid: ' + base.concat(dynamic).join(', ') + '.';
+}
+
+/* ---- Legacy alias (kept for compatibility) ---- */
+function buildPrompt(){
+  return buildCombinedPrompt();
+}
+
+function hasAnySelection(){
+  return Object.entries(state).some(([id,v])=>{
+    if(v instanceof Set) return v.size>0;
+    if(typeof v==='boolean') return v;
+    if(typeof v==='object' && v && !(v instanceof Set)) return false; // colors handled separately
+    return !!v;
+  }) || (state.colors && JSON.stringify(state.colors)!==JSON.stringify(DEFAULT_COLORS));
+}
+
+let activePromptTab = 'combined'; // combined | character | typography | negative
+
+const PROMPT_BUILDERS = {
+  combined: buildCombinedPrompt,
+  character: buildCharacterPrompt,
+  typography: buildTypographyPrompt,
+  negative: buildNegativePrompt,
+};
+
+/* ============ VARIATIONS ============ */
+let variationCount = 1;
+let activeVariation = 0; // 0 = your original picks, 1..9 = variations 2..10
+let variationData = {sig:'', list:[]};
+let variationStyle = 'similar'; // similar | different
+
+const THEME_PALETTES = {
+  halloweenTheme:['Halloween Orange + Black','Purple + Black Halloween','Pink Halloween','Purple + Black','Black + Gold'],
+  christmasTheme:['Holiday Red + Green','Christmas Red + Green','Red + White + Gold','Emerald + Gold','Pink Christmas','Black + Gold Christmas'],
+  valentinesTheme:['Pink + Red','Hot Pink + Black + White','Pastel Pink + Gold','Red + White','Pink + Purple'],
+  easterTheme:['Spring Pastel — Lilac, Mint + Blush','Pastels','Pastel Rainbow','Aqua + Pink'],
+  thanksgivingTheme:['Earth Tones','Cozy Neutral — Cream, Taupe + Rust','Neutrals','Black + Gold'],
+  newYearsTheme:['Black + Gold','Black + Silver','Red + White + Gold','Y2K Chrome + Baby Pink'],
+  juneteenthTheme:['Juneteenth Red, Black + Green','Red + Black','Black + Gold'],
+  july4thTheme:['Red + White','Blue + Silver','Red + White + Gold','Blue'],
+  winterTheme:['Blue + Silver','Pink Christmas','Black + Silver','Neutrals'],
+  fallTheme:['Earth Tones','Cozy Neutral — Cream, Taupe + Rust','Orange','Red + Black'],
+  springTheme:['Spring Pastel — Lilac, Mint + Blush','Pastels','Pastel Rainbow','Aqua + Pink','Pink + Lime'],
+  summerTheme:['Sunset Streetwear — Orange, Pink + Purple','Aqua + Pink','Rainbow','Pink + Lime','Yellow']
+};
+// fields that change from one variation to the next (theme stays the same)
+const VARY_FIELDS = ['characterAesthetic','hairstyle','hairColor','outfit','fashionAesthetic','shoes','accessories','expression','makeup','nailStyle','nailColor','pose','material'];
+
+function activeThemeKeys(){
+  return Object.keys(ALL_THEME_FLAVORS).filter(k=> state[k] instanceof Set && state[k].size);
+}
+function pickN(arr, n){
+  const pool = arr.slice(), out = [];
+  while(out.length < n && pool.length) out.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
+  return out;
+}
+function rollVariations(){
+  const themes = activeThemeKeys();
+  const masc = isMasculineOnly();
+  const fem = /dress|skirt|romper|tube top|crop|bodysuit|heels|pumps|mary jane|girl/i;
+  const union = (prop)=> [...new Set(themes.flatMap(k=> ALL_THEME_FLAVORS[k][prop]))];
+  const list = [];
+  const secLockedFn = (id)=> FIELD_INDEX[id] && locks[FIELD_INDEX[id].sectionId];
+  if(variationStyle === 'similar'){
+    // same character, same theme: only color, background, text style and decorations shift a little
+    const els = union('supportingElements'), bgs = union('background'), typos = union('typographyStyle');
+    let palPool = [...new Set(themes.flatMap(k=> THEME_PALETTES[k] || []))].filter(n=> PALETTE_PRESETS[n]);
+    if(!palPool.length) palPool = Object.keys(PALETTE_PRESETS);
+    const noThemeBg = FIELD_INDEX.background.field.opts.filter(o=> !/^(None|Custom)\b/i.test(o));
+    const noThemeTypo = FIELD_INDEX.typographyStyle.field.opts.filter(o=> !/^(None|Custom)\b/i.test(o));
+    const palOrder = pickN(palPool, Math.min(9, palPool.length));
+    for(let i=0;i<9;i++){
+      const ov = {fields:{}, preset:null};
+      if(!secLockedFn('presetPalette')) ov.preset = palOrder.length ? palOrder[i % palOrder.length] : null;
+      const levers = pickN(['background','typographyStyle','supportingElements'], 1 + Math.floor(Math.random()*2));
+      levers.forEach(l=>{
+        if(secLockedFn(l)) return;
+        if(l==='background'){ const pool = bgs.length ? bgs : noThemeBg; ov.fields.background = new Set(pickN(pool,1)); }
+        if(l==='typographyStyle'){ const pool = typos.length ? typos : noThemeTypo; ov.fields.typographyStyle = new Set(pickN(pool,1)); }
+        if(l==='supportingElements' && els.length){ ov.fields.supportingElements = new Set(pickN(els, Math.min(3, els.length))); }
+      });
+      list.push(ov);
+    }
+    variationData = {sig: variationSig(), list};
+    return;
+  }
+  for(let i=0;i<9;i++){
+    const ov = {fields:{}, preset:null};
+    VARY_FIELDS.forEach(id=>{
+      const info = FIELD_INDEX[id];
+      if(!info || locks[info.sectionId]) return;
+      let pool = info.field.opts.filter(o=> !/^(None|Custom)\b/i.test(o) && !/^No Makeup$/i.test(o));
+      if(masc) pool = pool.filter(o=> !fem.test(o));
+      if(pool.length) ov.fields[id] = new Set(pickN(pool, id==='accessories' ? 3 : (id==='outfit' ? 1 : 1 + Math.floor(Math.random()*2))));
+    });
+    // theme-driven picks
+    const secLocked = (id)=> FIELD_INDEX[id] && locks[FIELD_INDEX[id].sectionId];
+    if(themes.length){
+      const els = union('supportingElements'), bgs = union('background'), typos = union('typographyStyle');
+      let pers = union('personality'); if(masc) pers = pers.filter(x=> !/girl/i.test(x));
+      if(els.length && !secLocked('supportingElements')) ov.fields.supportingElements = new Set(pickN(els, Math.min(3, els.length)));
+      if(bgs.length && !secLocked('background')) ov.fields.background = new Set(pickN(bgs, 1));
+      if(typos.length && !secLocked('typographyStyle')) ov.fields.typographyStyle = new Set(pickN(typos, 1));
+      if(pers.length && !secLocked('personality')) ov.fields.personality = new Set(pickN(pers, 1));
+    } else {
+      ['typographyStyle','background'].forEach(id=>{
+        if(secLocked(id)) return;
+        const pool = FIELD_INDEX[id].field.opts.filter(o=> !/^(None|Custom)\b/i.test(o));
+        ov.fields[id] = new Set(pickN(pool, 1));
+      });
+    }
+    let palPool = [...new Set(themes.flatMap(k=> THEME_PALETTES[k] || []))].filter(n=> PALETTE_PRESETS[n]);
+    if(!palPool.length) palPool = Object.keys(PALETTE_PRESETS);
+    if(!secLocked('presetPalette')) ov.preset = pickN(palPool, 1)[0];
+    list.push(ov);
+  }
+  variationData = {sig: variationSig(), list};
+}
+function variationSig(){ return variationStyle + '|' + activeThemeKeys().join(',') + '|' + Array.from(state.gender || []).join(','); }
+
+function withVariation(v, fn){
+  if(variationData.sig !== variationSig() || !variationData.list.length) rollVariations();
+  const ov = variationData.list[v-1];
+  const backup = {}, backupColors = state.colors;
+  Object.keys(ov.fields).forEach(id=>{ backup[id] = state[id]; state[id] = new Set(ov.fields[id]); });
+  if(ov.preset){ backup.presetPalette = state.presetPalette; state.presetPalette = new Set([ov.preset]); state.colors = {...PALETTE_PRESETS[ov.preset]}; }
+  try{ return fn(); }
+  finally{ Object.keys(backup).forEach(id=>{ state[id] = backup[id]; }); state.colors = backupColors; }
+}
+function getTabText(tab, v){
+  if(v > 0 && tab !== 'negative') return withVariation(v, ()=> PROMPT_BUILDERS[tab]());
+  return PROMPT_BUILDERS[tab]();
+}
+function renderVariationChips(){
+  // every variation now has its own box, so the V1/V2 chips are no longer needed
+  document.getElementById('variationChips').innerHTML = '';
+  document.getElementById('btnCopyVariations').style.display = variationCount > 1 ? '' : 'none';
+}
+
+let separateMode = false;
+const STACK_TABS = [['combined','Combined Prompt'],['character','Character Prompt'],['typography','Typography Prompt'],['negative','Negative Prompt']];
+function makeStackItem(title, text){
+  const item = document.createElement('div');
+  const head = document.createElement('div');
+  head.className = 'stack-head';
+  const t = document.createElement('span');
+  t.textContent = title;
+  const btn = document.createElement('button');
+  btn.type='button'; btn.className='stack-copy'; btn.textContent='📋 Copy';
+  btn.addEventListener('click', ()=>{
+    if(!text){ showToast('Generate a prompt first'); return; }
+    copyToClipboard(text);
+  });
+  head.appendChild(t); head.appendChild(btn);
+  const body = document.createElement('div');
+  body.className = 'prompt-box' + (text ? '' : ' empty');
+  body.textContent = text || 'Start selecting options and this prompt will appear here.';
+  item.appendChild(head); item.appendChild(body);
+  return item;
+}
+function renderPromptStack(){
+  const stack = document.getElementById('promptStack');
+  stack.innerHTML = '';
+  const has = hasAnySelection();
+  if(variationCount > 1){
+    // one box per variation for the selected prompt tab
+    const tabLabel = (STACK_TABS.find(t=> t[0]===activePromptTab) || [])[1] || '';
+    const count = activePromptTab === 'negative' ? 1 : variationCount; // negative prompt is the same for every variation
+    for(let i=0;i<count;i++){
+      const text = (activePromptTab==='negative' || has) ? getTabText(activePromptTab, i).trim() : '';
+      stack.appendChild(makeStackItem(activePromptTab==='negative' ? tabLabel : 'Variation ' + (i+1) + ' — ' + tabLabel, text));
+    }
+    return;
+  }
+  STACK_TABS.forEach(([key,label])=>{
+    const text = (key==='negative' || has) ? getTabText(key, 0).trim() : '';
+    stack.appendChild(makeStackItem(label, text));
+  });
+}
+function applySeparateMode(){
+  const varMode = variationCount > 1;
+  const stackOn = varMode || separateMode;
+  document.getElementById('promptStack').classList.toggle('on', stackOn);
+  document.getElementById('promptTabs').style.display = (separateMode && !varMode) ? 'none' : '';
+  document.getElementById('promptBox').style.display = stackOn ? 'none' : '';
+  document.getElementById('btnCopy').style.display = stackOn ? 'none' : '';
+  document.getElementById('btnSeparate').style.display = varMode ? 'none' : '';
+  document.getElementById('btnSeparate').textContent = separateMode ? '🗂 Back to Tabs' : '🗂 Show Each Prompt Separately';
+  updatePromptBox();
+}
+
+function updatePromptBox(){
+  if(separateMode || variationCount > 1) renderPromptStack();
+  const box = document.getElementById('promptBox');
+  if(activePromptTab === 'negative'){
+    box.classList.remove('empty');
+    box.textContent = buildNegativePrompt();
+    return;
+  }
+  if(!hasAnySelection()){
+    box.classList.add('empty');
+    box.textContent='Your generated prompt will appear here. Start selecting options on the left, then hit Generate Prompt.';
+    return;
+  }
+  box.classList.remove('empty');
+  box.textContent = getTabText(activePromptTab, activeVariation);
+}
+
+/* ============ MATCH SCORE ============ */
+function updateMatchScore(){
+  let score = 45;
+  const theme = ['generalTheme','halloweenTheme','christmasTheme','valentinesTheme','easterTheme','thanksgivingTheme','newYearsTheme','juneteenthTheme','july4thTheme','winterTheme','fallTheme','springTheme','summerTheme'].map(id=>listOrNull(id)).find(v=>v);
+  if(theme) score += 16;
+  if(state.presetPalette.size) score += 14;
+  if(state.autoMatch) score += 12;
+  if(state.creationMode.has('Character + Typography')) score += 8;
+  const aes = state.characterAesthetic;
+  const typo = state.typographyStyle;
+  if(aes && typo){
+    const overlapWords = ['Y2K','Goth','Streetwear','Luxury','Retro','Vintage','Western'];
+    const aesStr = Array.from(aes).join(' ');
+    const typoStr = Array.from(typo).join(' ');
+    if(overlapWords.some(w=> aesStr.includes(w) && typoStr.includes(w))) score += 6;
+  }
+  score = Math.max(30, Math.min(98, score));
+
+  document.getElementById('gaugeNum').textContent = hasAnySelection() ? score+'%' : '—';
+  document.getElementById('gaugeFill').style.width = hasAnySelection() ? score+'%' : '0%';
+
+  const msgEl = document.getElementById('gaugeMsg');
+  if(!hasAnySelection()){
+    msgEl.textContent = 'Select a theme or palette to see your coordination score.';
+  } else if(score >= 85){
+    msgEl.textContent = 'Excellent coordination — character, palette and typography are working together.';
+  } else if(score >= 65){
+    msgEl.textContent = 'Good coordination. Add a theme or palette for a tighter match.';
+  } else {
+    msgEl.textContent = 'Loose coordination. Try adding a theme, preset palette, or enabling auto-match.';
+  }
+}
+
+function refreshAll(){
+  updatePromptBox();
+  updateMatchScore();
+  saveDraft();
+}
+
+/* ============ FAVORITES (full editable builds) ============ */
+const FAV_KEY = 'stg_kct_favorites';
+function getFavs(){
+  try{
+    const raw = JSON.parse(localStorage.getItem(FAV_KEY)) || [];
+    // migrate legacy text-only favorites into the new object format
+    return raw.map(f=> typeof f === 'string'
+      ? { id:'legacy_'+Math.random().toString(36).slice(2), label:f.slice(0,60)+(f.length>60?'…':''), previewText:f, snapshot:null, savedAt:Date.now() }
+      : f
+    );
+  }catch(e){ return []; }
+}
+function setFavs(list){ localStorage.setItem(FAV_KEY, JSON.stringify(list)); }
+
+function renderFavs(){
+  const wrap = document.getElementById('favList');
+  const favs = getFavs();
+  wrap.innerHTML = favs.length ? '' : '<div style="font-size:13px;color:#a37a88;">No favorites saved yet.</div>';
+  favs.forEach((fav)=>{
+    const item = document.createElement('div');
+    item.className='fav-item';
+    const label = document.createElement('span');
+    label.textContent = fav.label;
+    const btnRow = document.createElement('div');
+    const load = document.createElement('button');
+    load.type = 'button';
+    load.textContent = fav.snapshot ? 'Load & Edit' : 'Use';
+    load.style.marginRight='8px';
+    load.addEventListener('click', ()=>{
+      if(fav.snapshot){
+        applySnapshot(fav.snapshot);
+        renderSections();
+        refreshAll();
+        showToast('Favorite loaded — keep editing');
+      } else {
+        document.getElementById('promptBox').textContent = fav.previewText || fav.label;
+        document.getElementById('promptBox').classList.remove('empty');
+        showToast('Loaded (text only — saved before build-editing was added)');
+      }
+    });
+    const del = document.createElement('button');
+    del.type = 'button';
+    del.textContent='✕';
+    del.setAttribute('aria-label', 'Delete this favorite');
+    del.addEventListener('click', ()=>{
+      const list = getFavs().filter(f=> f.id !== fav.id);
+      setFavs(list);
+      renderFavs();
+    });
+    btnRow.appendChild(load); btnRow.appendChild(del);
+    item.appendChild(label); item.appendChild(btnRow);
+    wrap.appendChild(item);
+  });
+}
+
+/* ============ TOAST ============ */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=> t.classList.remove('show'), 1800);
+}
+
+/* ============ BUTTONS ============ */
+document.getElementById('btnGenerate').addEventListener('click', ()=>{
+  rollVariations();
+  refreshAll();
+  showToast('Prompt generated');
+  document.querySelector('.preview-card').scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+document.getElementById('btnCopy').addEventListener('click', ()=>{
+  const box = document.getElementById('promptBox');
+  const text = box.textContent;
+  if(!text || box.classList.contains('empty')){
+    showToast('Generate a prompt first');
+    return;
+  }
+  copyToClipboard(text);
+});
+
+
+document.getElementById('btnSeparate').addEventListener('click', ()=>{ separateMode = !separateMode; applySeparateMode(); });
+document.getElementById('variationCount').addEventListener('change', (e)=>{
+  variationCount = parseInt(e.target.value, 10) || 1;
+  if(activeVariation >= variationCount) activeVariation = 0;
+  renderVariationChips();
+  applySeparateMode();
+});
+document.getElementById('variationStyle').addEventListener('change', (e)=>{
+  variationStyle = e.target.value;
+  rollVariations();
+  updatePromptBox();
+});
+document.getElementById('btnCopyVariations').addEventListener('click', ()=>{
+  if(!hasAnySelection()){ showToast('Generate a prompt first'); return; }
+  const out = [];
+  for(let i=0;i<variationCount;i++){
+    out.push('===== VARIATION ' + (i+1) + ' =====\n' + getTabText(activePromptTab, i).trim());
+  }
+  copyToClipboard(out.join('\n\n'));
+});
+renderVariationChips();
+
+function copyToClipboard(text){
+  const fallbackCopy = ()=>{
+    try{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      if(ok) showToast('Copied to clipboard');
+      else showToast('Copy failed — select and copy the text manually');
+    }catch(err){
+      showToast('Copy failed — select and copy the text manually');
+    }
+  };
+
+  if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext){
+    navigator.clipboard.writeText(text)
+      .then(()=> showToast('Copied to clipboard'))
+      .catch(()=> fallbackCopy());
+  } else {
+    fallbackCopy();
+  }
+}
+
+document.getElementById('btnSaveFav').addEventListener('click', ()=>{
+  const box = document.getElementById('promptBox');
+  const text = box.textContent;
+  if(!text || box.classList.contains('empty')){
+    showToast('Generate a prompt first'); return;
+  }
+  const labelSource = state.exactText ? state.exactText : text;
+  const label = labelSource.slice(0,60) + (labelSource.length>60?'…':'');
+  const favs = getFavs();
+  favs.unshift({
+    id: 'fav_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
+    label,
+    previewText: text,
+    snapshot: serializeSnapshot(),
+    savedAt: Date.now(),
+  });
+  setFavs(favs.slice(0,20));
+  renderFavs();
+  showToast('Saved — full build can be reloaded and edited');
+});
+
+document.getElementById('btnClear').addEventListener('click', ()=>{
+  SECTIONS.forEach(sec=> sec.fields.forEach(f=>{
+    if(locks[sec.id]) return;
+    if(f.type==='multi') state[f.id] = new Set();
+    else if(f.type==='checkbox') state[f.id] = false;
+    else if(f.type==='colors') state[f.id] = {...DEFAULT_COLORS};
+    else state[f.id] = '';
+  }));
+  renderSections();
+  refreshAll();
+  showToast('Cleared (locked sections preserved)');
+});
+
+document.getElementById('btnSurprise').addEventListener('click', ()=>{
+  SECTIONS.forEach(sec=>{
+    if(locks[sec.id]) return;
+    sec.fields.forEach(f=>{
+      if(f.type==='multi'){
+        const count = 1 + Math.floor(Math.random()*3);
+        const s = new Set();
+        for(let i=0;i<count;i++) s.add(f.opts[Math.floor(Math.random()*f.opts.length)]);
+        state[f.id] = s;
+      }
+      if(f.type==='checkbox' && Math.random()>0.5) state[f.id] = true;
+    });
+  });
+  if(!locks['elements']){
+    let chosen = state.presetPalette.size ? Array.from(state.presetPalette)[0] : null;
+    if(!chosen){
+      const presetKeys = Object.keys(PALETTE_PRESETS);
+      chosen = presetKeys[Math.floor(Math.random()*presetKeys.length)];
+      state.presetPalette = new Set([chosen]);
+    }
+    if(PALETTE_PRESETS[chosen]){
+      state.colors = {...PALETTE_PRESETS[chosen]};
+    }
+  }
+  renderSections();
+  refreshAll();
+  showToast('Surprised! (locked sections untouched)');
+});
+
+/* ============ PROMPT TABS ============ */
+document.querySelectorAll('.prompt-tab').forEach(tabBtn=>{
+  tabBtn.addEventListener('click', ()=>{
+    activePromptTab = tabBtn.getAttribute('data-tab');
+    document.querySelectorAll('.prompt-tab').forEach(b=> b.classList.remove('active'));
+    tabBtn.classList.add('active');
+    updatePromptBox();
+  });
+});
+
+document.getElementById('btnRegenerate').addEventListener('click', ()=>{
+  rollVariations();
+  refreshAll();
+  showToast('Regenerated');
+});
+
+/* ============ THEMED QUICK RANDOMIZE ============ */
+document.getElementById('btnRandomCharacter').addEventListener('click', ()=>{
+  randomizeFields(['gender','characterAesthetic','ethnicity','skinTone','faceShape','expression','eyeShape','eyeColor','lashStyle','lips','teeth','makeup','hairTexture','hairstyle','hairAccessories','hairColor','bodyStyle','outfit','fashionAesthetic','shoes','accessories','personality','profession']);
+  if(!locks['start']) state.creationMode = new Set(['Character Only']);
+  if(isMasculineOnly() && !locks['personality']){
+    Array.from(state.personality).forEach(p=>{ if(/girl/i.test(p)) state.personality.delete(p); });
+    if(state.personality.size===0) state.personality.add('Confident');
+  }
+  renderSections(); refreshAll();
+  showToast('Random character generated');
+});
+
+const HOLIDAY_FLAVORS = {
+  halloweenTheme:   { supportingElements:['Pumpkins','Ghosts','Bats','Spiderwebs','Candy Corn','Black Cats','Witch Hats','Potions','Cauldrons','Tombstones'], background:['Halloween Room','Haunted House','Pumpkin Patch'], personality:['Spooky Girl'], typographyStyle:['Gothic','Blackletter','Graffiti','Drippy Paint'] },
+  christmasTheme:   { supportingElements:['Snowflakes','Ornaments','Candy Canes','Gingerbread','Christmas Trees','Gifts','Stockings','Christmas Lights','Snow','Bells','Holly'], background:['Christmas Living Room','Christmas Tree','Winter Wonderland','Snowy Street'], personality:['Christmas Lover','Cozy Girl'], typographyStyle:['Chenille','Embroidered','Knitted','Crochet'] },
+  valentinesTheme:  { supportingElements:['Hearts','Sparkles','Diamonds','Pearls','Bows'], background:['Solid Color','Gradient','Bedroom'], personality:['Sweet','Glamorous'], typographyStyle:['Script','Rhinestone','Handwritten'] },
+  easterTheme:      { supportingElements:['Flowers','Butterflies','Pearls','Bows'], background:['Solid Color','Gradient','Abstract'], personality:['Sweet','Playful'], typographyStyle:['Rounded','Bubble','Floral'] },
+  thanksgivingTheme:{ supportingElements:[], background:['Solid Color','Gradient','Abstract'], personality:['Cozy Girl','Sophisticated'], typographyStyle:['Handwritten','Editorial Serif'] },
+  newYearsTheme:    { supportingElements:['Confetti','Balloons','Fireworks','Diamonds'], background:['Solid Color','Gradient','Abstract'], personality:['Glamorous','Bougie'], typographyStyle:['Chrome','Metallic','Neon'] },
+  juneteenthTheme:  { supportingElements:['Stars','Crowns'], background:['Solid Color','Gradient','Abstract'], personality:['Confident','Sophisticated'], typographyStyle:['Bold Sans Serif','Varsity'] },
+  july4thTheme:     { supportingElements:['Fireworks','Stars'], background:['Solid Color','Gradient','Abstract'], personality:['Confident','Playful'], typographyStyle:['Bold Sans Serif','Neon'] },
+};
+
+const SEASON_FLAVORS = {
+  winterTheme: { supportingElements:['Snow','Snowflakes'], background:['Winter Wonderland','Snowy Street'], personality:['Cozy Girl'], typographyStyle:['Chenille','Knitted','Frosted'] },
+  fallTheme:   { supportingElements:[], background:['Solid Color','Gradient','Abstract'], personality:['Cozy Girl','Sophisticated'], typographyStyle:['Handwritten','Editorial Serif'] },
+  springTheme: { supportingElements:['Flowers','Butterflies'], background:['Solid Color','Gradient','Abstract'], personality:['Sweet','Playful'], typographyStyle:['Rounded','Floral'] },
+  summerTheme: { supportingElements:['Palm Trees','Sun'], background:['Solid Color','Gradient','Abstract'], personality:['Playful','Confident'], typographyStyle:['Neon','Bold Sans Serif'] },
+};
+
+function isMasculineOnly(){
+  const g = state.gender;
+  if(!g || g.size===0) return false;
+  const hasMasc = g.has('Male') || g.has('Boy');
+  const hasFem = g.has('Female') || g.has('Girl');
+  return hasMasc && !hasFem;
+}
+
+function applyThemeFlavor(themeFieldId, flavorMap){
+  const flavor = flavorMap[themeFieldId];
+  if(!flavor) return;
+  addRandomToField(themeFieldId, FIELD_INDEX[themeFieldId].field.opts, 2);
+  if(flavor.supportingElements.length) addRandomToField('supportingElements', flavor.supportingElements, Math.min(2, flavor.supportingElements.length));
+  if(flavor.background.length) addRandomToField('background', flavor.background, 1);
+  if(flavor.personality.length){
+    // don't force "-Girl" suffixed personality traits onto a character explicitly set to Male/Boy only
+    const pool = isMasculineOnly() ? flavor.personality.filter(p=> !/girl/i.test(p)) : flavor.personality;
+    const finalPool = pool.length ? pool : ['Confident','Playful','Sophisticated'];
+    addRandomToField('personality', finalPool, 1);
+  }
+  if(flavor.typographyStyle.length) addRandomToField('typographyStyle', flavor.typographyStyle, 1);
+}
+
+const ALL_THEME_FLAVORS = {...HOLIDAY_FLAVORS, ...SEASON_FLAVORS};
+
+let lastFlavorAdds = {}; // values the last Random Holiday/Season click added, so the next click can replace them
+
+document.getElementById('btnRandomHolidaySeason').addEventListener('click', ()=>{
+  const keys = Object.keys(ALL_THEME_FLAVORS);
+  // clear the previous random look (only what that button added) plus any holiday/season theme picks
+  Object.keys(lastFlavorAdds).forEach(id=>{
+    if(state[id] instanceof Set && !locks[FIELD_INDEX[id].sectionId]) lastFlavorAdds[id].forEach(v=> state[id].delete(v));
+  });
+  keys.forEach(k=>{
+    if(state[k] instanceof Set && !locks[FIELD_INDEX[k].sectionId]) state[k].clear();
+  });
+  const watched = [...keys, 'supportingElements','background','personality','typographyStyle'];
+  const before = {};
+  watched.forEach(id=>{ if(state[id] instanceof Set) before[id] = new Set(state[id]); });
+  const count = 1 + Math.floor(Math.random()*2); // 1 or 2 — lets it mix a holiday with a season, two holidays, etc.
+  const chosen = new Set();
+  while(chosen.size < count) chosen.add(keys[Math.floor(Math.random()*keys.length)]);
+  chosen.forEach(k=> applyThemeFlavor(k, ALL_THEME_FLAVORS));
+  lastFlavorAdds = {};
+  watched.forEach(id=>{
+    if(state[id] instanceof Set){
+      const prev = before[id] || new Set();
+      const added = [...state[id]].filter(v=> !prev.has(v));
+      if(added.length) lastFlavorAdds[id] = added;
+    }
+  });
+  renderSections(); refreshAll();
+  const labels = Array.from(chosen).map(k=> FIELD_INDEX[k].field.label.replace(' Theme',''));
+  showToast(`Random ${labels.join(' + ')} look generated`);
+});
+
+/* ============ QUICK-START PRESETS ============ */
+const QUICK_PRESETS = [
+ {
+  "name": "Pinkmas Chenille Patch",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Chibi Bratz Style"
+   ],
+   "designType": [
+    "Chenille Patch"
+   ],
+   "christmasTheme": [
+    "Pinkmas"
+   ],
+   "outfit": [
+    "Christmas Pajamas"
+   ],
+   "hairstyle": [
+    "Giant Afro Puffs"
+   ],
+   "typographyStyle": [
+    "Chenille"
+   ],
+   "material": [
+    "Chenille",
+    "Rhinestone"
+   ],
+   "supportingElements": [
+    "Ornaments",
+    "Candy Canes",
+    "Bows"
+   ],
+   "background": [
+    "Christmas Living Room"
+   ],
+   "pose": [
+    "Standing"
+   ]
+  },
+  "palette": "Pink Christmas"
+ },
+ {
+  "name": "Spooky Glam Halloween Sticker",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "designType": [
+    "Sticker"
+   ],
+   "halloweenTheme": [
+    "Spooky Glam"
+   ],
+   "makeup": [
+    "Halloween Glam"
+   ],
+   "outfit": [
+    "Leather Jacket"
+   ],
+   "typographyStyle": [
+    "Blackletter"
+   ],
+   "material": [
+    "Glossy"
+   ],
+   "supportingElements": [
+    "Bats",
+    "Spiderwebs",
+    "Pumpkins"
+   ],
+   "background": [
+    "Halloween Room"
+   ]
+  },
+  "palette": "Purple + Black Halloween"
+ },
+ {
+  "name": "Boss Lady Pearls + Rhinestones",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Stylized Realism"
+   ],
+   "characterAesthetic": [
+    "Bougie"
+   ],
+   "personality": [
+    "Bossy",
+    "Glamorous"
+   ],
+   "outfit": [
+    "Oversized Blazer"
+   ],
+   "accessories": [
+    "Statement Earrings",
+    "Handbag"
+   ],
+   "typographyStyle": [
+    "Script"
+   ],
+   "material": [
+    "Rhinestone",
+    "Chenille"
+   ],
+   "effects": [
+    "Rhinestone Outline"
+   ],
+   "supportingElements": [
+    "Pearls",
+    "Diamonds",
+    "Crowns"
+   ],
+   "background": [
+    "Luxury Studio"
+   ]
+  },
+  "palette": "Pastel Pink + Gold"
+ },
+ {
+  "name": "Luxury Streetwear Fashion Doll",
+  "fields": {
+   "creationMode": [
+    "Character Only"
+   ],
+   "artStyle": [
+    "Chibi Bratz Style"
+   ],
+   "characterAesthetic": [
+    "Luxury Streetwear",
+    "Premium 3D Fashion Doll"
+   ],
+   "outfit": [
+    "Tracksuit"
+   ],
+   "shoes": [
+    "Chunky Sneakers"
+   ],
+   "accessories": [
+    "Layered Chains",
+    "Sunglasses"
+   ],
+   "designerBrands": [
+    "Gucci"
+   ],
+   "background": [
+    "Modern Penthouse"
+   ],
+   "pose": [
+    "Hand on Hip"
+   ]
+  },
+  "palette": "Black + Gold"
+ },
+ {
+  "name": "Retro 90s Throwback",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "characterAesthetic": [
+    "1990s Inspired"
+   ],
+   "fashionAesthetic": [
+    "90s"
+   ],
+   "hairstyle": [
+    "Big 90s Curls"
+   ],
+   "outfit": [
+    "Bomber Jacket",
+    "Jeans"
+   ],
+   "shoes": [
+    "Retro Sneakers"
+   ],
+   "typographyStyle": [
+    "Retro"
+   ],
+   "background": [
+    "Retro 90s Bedroom"
+   ]
+  },
+  "palette": "Sunset Streetwear — Orange, Pink + Purple"
+ },
+ {
+  "name": "HBCU Homecoming Spirit",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "designType": [
+    "T-Shirt Graphic"
+   ],
+   "generalTheme": [
+    "College"
+   ],
+   "outfit": [
+    "Varsity Jacket"
+   ],
+   "typographyStyle": [
+    "Varsity"
+   ],
+   "material": [
+    "Chenille"
+   ],
+   "supportingElements": [
+    "Stars",
+    "Trophies"
+   ],
+   "background": [
+    "White Studio"
+   ]
+  },
+  "palette": "HBCU Green + Gold"
+ },
+ {
+  "name": "Sisterhood Pink + Green Glam",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Stylized Realism"
+   ],
+   "characterAesthetic": [
+    "Girly Glam"
+   ],
+   "outfit": [
+    "Faux-Fur Coat"
+   ],
+   "typographyStyle": [
+    "Greek Letter Style"
+   ],
+   "material": [
+    "Chenille",
+    "Rhinestone"
+   ],
+   "supportingElements": [
+    "Pearls",
+    "Bows",
+    "Roses"
+   ],
+   "background": [
+    "Solid Color"
+   ]
+  },
+  "palette": "STG Signature — Pink, Sage, White + Black"
+ },
+ {
+  "name": "Cozy Thanksgiving",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "thanksgivingTheme": [
+    "Cozy Thanksgiving"
+   ],
+   "outfit": [
+    "Knit Sweater"
+   ],
+   "typographyStyle": [
+    "Handwritten"
+   ],
+   "material": [
+    "Knitted"
+   ],
+   "background": [
+    "Abstract"
+   ]
+  },
+  "palette": "Earth Tones"
+ },
+ {
+  "name": "Teacher Appreciation",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "profession": [
+    "Teacher"
+   ],
+   "generalTheme": [
+    "School"
+   ],
+   "characterAesthetic": [
+    "Teacher"
+   ],
+   "outfit": [
+    "Blazer"
+   ],
+   "accessories": [
+    "Notebook",
+    "Oversized Glasses"
+   ],
+   "typographyStyle": [
+    "Rounded"
+   ],
+   "supportingElements": [
+    "Books",
+    "Notebooks",
+    "Stars"
+   ],
+   "background": [
+    "Classroom"
+   ]
+  },
+  "palette": "Pastels"
+ },
+ {
+  "name": "Nail Tech Beauty Boss",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Chibi Bratz Style"
+   ],
+   "profession": [
+    "Nail Artist"
+   ],
+   "generalTheme": [
+    "Nail Salon"
+   ],
+   "characterAesthetic": [
+    "Nail Artist"
+   ],
+   "makeup": [
+    "Full Glam"
+   ],
+   "nailShape": [
+    "Coffin"
+   ],
+   "nailLength": [
+    "Long"
+   ],
+   "nailStyle": [
+    "Chrome",
+    "Rhinestones"
+   ],
+   "typographyStyle": [
+    "Script"
+   ],
+   "material": [
+    "Rhinestone"
+   ],
+   "background": [
+    "Beauty Room"
+   ]
+  },
+  "palette": "Pastel Pink + Gold"
+ },
+ {
+  "name": "Y2K Baddie",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Chibi Bratz Style"
+   ],
+   "characterAesthetic": [
+    "Y2K Doll",
+    "Baddie"
+   ],
+   "fashionAesthetic": [
+    "Y2K"
+   ],
+   "outfit": [
+    "Crop Top",
+    "Mini Skirt"
+   ],
+   "typographyStyle": [
+    "Chrome"
+   ],
+   "material": [
+    "Chrome",
+    "Glitter"
+   ],
+   "background": [
+    "Y2K Chrome Room"
+   ]
+  },
+  "palette": "Y2K Chrome + Baby Pink"
+ },
+ {
+  "name": "Juneteenth Black Joy",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "juneteenthTheme": [
+    "Black Joy"
+   ],
+   "typographyStyle": [
+    "Bold Sans Serif"
+   ],
+   "supportingElements": [
+    "Stars",
+    "Crowns"
+   ],
+   "background": [
+    "Gradient"
+   ]
+  },
+  "palette": "Juneteenth Red, Black + Green"
+ },
+ {
+  "name": "Summer Beach Day",
+  "fields": {
+   "creationMode": [
+    "Character + Typography"
+   ],
+   "artStyle": [
+    "Cartoon Realism"
+   ],
+   "summerTheme": [
+    "Beach Day"
+   ],
+   "outfit": [
+    "Shorts"
+   ],
+   "shoes": [
+    "Sandals"
+   ],
+   "accessories": [
+    "Sunglasses"
+   ],
+   "typographyStyle": [
+    "Bubble"
+   ],
+   "supportingElements": [
+    "Palm Trees",
+    "Sun"
+   ],
+   "background": [
+    "Abstract"
+   ]
+  },
+  "palette": "Aqua + Pink"
+ }
+];
+const PRESET_KEEP = new Set(['gender','ethnicity','skinTone']); // identity choices stay when a preset is applied
+(function initPresets(){
+  const grid = document.getElementById('presetGrid');
+  QUICK_PRESETS.forEach((pr,i)=>{
+    const btn = document.createElement('button');
+    btn.type='button';
+    btn.className='preset-btn';
+    btn.textContent = pr.name;
+    btn.addEventListener('click', ()=>{
+      // start clean (except identity choices and locked sections), then apply the preset
+      Object.keys(FIELD_INDEX).forEach(id=>{
+        const info = FIELD_INDEX[id];
+        if(PRESET_KEEP.has(id) || locks[info.sectionId]) return;
+        if(state[id] instanceof Set) state[id].clear();
+      });
+      Object.keys(pr.fields).forEach(id=>{
+        const info = FIELD_INDEX[id];
+        if(!info || locks[info.sectionId]) return;
+        state[id] = new Set(pr.fields[id]);
+      });
+      if(PALETTE_PRESETS[pr.palette] && !locks[FIELD_INDEX.presetPalette.sectionId]){
+        state.presetPalette = new Set([pr.palette]);
+        state.colors = {...PALETTE_PRESETS[pr.palette]};
+      }
+      activeVariation = 0;
+      rollVariations();
+      renderVariationChips();
+      renderSections(); refreshAll();
+      grid.querySelectorAll('.preset-btn').forEach(b=> b.classList.remove('applied'));
+      btn.classList.add('applied');
+      showToast('Preset applied: ' + pr.name);
+      document.querySelector('.preview-card').scrollIntoView({behavior:'smooth', block:'center'});
+    });
+    grid.appendChild(btn);
+  });
+})();
+
+/* ============ THEME (NIGHT MODE) ============ */
+const THEME_KEY = 'stg_kct_theme';
+function applyTheme(theme){
+  if(theme === 'dark'){
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('btnTheme').textContent = '☀️ Day Mode';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    document.getElementById('btnTheme').textContent = '🌙 Night Mode';
+  }
+}
+function getStoredTheme(){
+  try{ return localStorage.getItem(THEME_KEY); }catch(e){ return null; }
+}
+function setStoredTheme(theme){
+  try{ localStorage.setItem(THEME_KEY, theme); }catch(e){}
+}
+document.getElementById('btnTheme').addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  setStoredTheme(next);
+});
+applyTheme(getStoredTheme() === 'dark' ? 'dark' : 'light');
+
+/* ============ INIT ============ */
+const savedDraft = loadDraft();
+if(savedDraft) applySnapshot(savedDraft);
+renderSections();
+updatePromptBox();
+updateMatchScore();
+renderFavs();
+if(savedDraft && hasAnySelection()){
+  showToast('Welcome back — your last build was restored');
+}
+</script>
+</body>
+</html>
